@@ -52,13 +52,13 @@ defineProps<{
                 </header>
 
                 <main class="mt-6 flex-1 flex items-center justify-center">
-                    Public feedback overview will come here
+                    Public feedback overview and voting will come here
                 </main>
 
                 <footer
                     class="py-16 text-center text-sm text-black dark:text-white/70"
                 >
-                    powered by nicefeature
+                    powered by <span class="font-semibold">nicefeature</span>
                 </footer>
             </div>
         </div>
