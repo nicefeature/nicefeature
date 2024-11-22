@@ -7,5 +7,6 @@ Work has only just begun on this project. As we progress on building a proper MV
 ## Tech Stack
 - PHP
 - Laravel
+- TypeScript
 - Vue
 - MySQL
