@@ -19,8 +19,8 @@ defineProps<{
                     class="flex py-10 justify-between"
                 >
                     <div>
-                        <Link href="/" class="flex items-center justify-center font-semibold font-serif text-3xl text-indigo-600">
-                            nice<span class="italic">f</span>eature
+                        <Link href="/" class="flex items-center justify-center font-black text-2xl text-black">
+                            Иicefeature
                         </Link>
                     </div>
                     <nav v-if="canLogin" class="flex items-center">

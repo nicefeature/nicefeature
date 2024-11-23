@@ -6,7 +6,7 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/vue3';
-import { MapIcon, ScrollTextIcon, SmileIcon } from 'lucide-vue-next';
+import { MapIcon, RocketIcon, StarIcon } from 'lucide-vue-next';
 
 const showingNavigationDropdown = ref(false);
 </script>
@@ -38,7 +38,7 @@ const showingNavigationDropdown = ref(false);
                                     :href="route('feedback')"
                                     :active="route().current('feedback')"
                                 >
-                                    <SmileIcon :size="16" class="mr-1" />
+                                    <StarIcon :size="16" class="mr-1" />
                                     Feedback
                                 </NavLink>
                                 <NavLink
@@ -52,7 +52,7 @@ const showingNavigationDropdown = ref(false);
                                     :href="route('changelog')"
                                     :active="route().current('changelog')"
                                 >
-                                    <ScrollTextIcon :size="16" class="mr-1" />
+                                    <RocketIcon :size="16" class="mr-1" />
                                     Changelog
                                 </NavLink>
                             </div>
