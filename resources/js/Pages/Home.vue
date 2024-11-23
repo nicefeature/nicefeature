@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { Head, Link } from '@inertiajs/vue3';
 
 defineProps<{
@@ -20,7 +21,7 @@ defineProps<{
                 >
                     <div>
                         <Link href="/" class="flex items-center justify-center font-black text-2xl text-black">
-                            Иicefeature
+                            <ApplicationLogo />
                         </Link>
                     </div>
                     <nav v-if="canLogin" class="flex items-center">
