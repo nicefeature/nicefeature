@@ -29,6 +29,20 @@ export const Noir = definePreset(Aura, {
                     focusBackground: '{slate.700}',
                     color: '#ffffff',
                     focusColor: '#ffffff'
+                },
+                surface: {
+                    0: '#ffffff',
+                    50: '{slate.50}',
+                    100: '{slate.100}',
+                    200: '{slate.200}',
+                    300: '{slate.300}',
+                    400: '{slate.400}',
+                    500: '{slate.500}',
+                    600: '{slate.600}',
+                    700: '{slate.700}',
+                    800: '{slate.800}',
+                    900: '{slate.900}',
+                    950: '{slate.950}'
                 }
             },
             dark: {
@@ -43,6 +57,20 @@ export const Noir = definePreset(Aura, {
                     focusBackground: 'rgba(250, 250, 250, .24)',
                     color: 'rgba(255,255,255,.87)',
                     focusColor: 'rgba(255,255,255,.87)'
+                },
+                surface: {
+                    0: '#ffffff',
+                    50: '{slate.50}',
+                    100: '{slate.100}',
+                    200: '{slate.200}',
+                    300: '{slate.300}',
+                    400: '{slate.400}',
+                    500: '{slate.500}',
+                    600: '{slate.600}',
+                    700: '{slate.700}',
+                    800: '{slate.800}',
+                    900: '{slate.900}',
+                    950: '{slate.950}'
                 }
             }
         }
