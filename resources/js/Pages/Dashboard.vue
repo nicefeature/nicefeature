@@ -7,6 +7,6 @@ import { Head } from '@inertiajs/vue3';
     <Head title="Dashboard" />
 
     <SidebarLayout>
-        <div class="px-10 py-5">Dashboard comes here...</div>
+        <div class="">Dashboard comes here...</div>
     </SidebarLayout>
 </template>
