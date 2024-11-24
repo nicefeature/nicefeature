@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import SidebarLink from '@/Components/SidebarLink.vue';
 import { Link } from '@inertiajs/vue3';
-import { ChevronsLeftIcon, ChevronsRightIcon, MapIcon, RocketIcon, StarIcon } from 'lucide-vue-next';
+import { ChevronsLeftIcon, ChevronsRightIcon, LogOutIcon, MapIcon, RocketIcon, StarIcon } from 'lucide-vue-next';
 import { Button } from 'primevue';
 import { ref } from 'vue';
 
@@ -16,42 +16,51 @@ const toggleSidebar = () => {
     <div :class="`flex ${isSidebarOpen ? 'h-screen' : ''}`">
         <!-- Sidebar -->
         <div
-            :class="`bg-zinc-50 border-zinc-100 border-r transition-all duration-300 h-full overflow-hidden relative ${
+            :class="`bg-slate-50 border-slate-100 border-r transition-all duration-300 h-full overflow-hidden relative ${
                 isSidebarOpen ? 'w-64' : 'w-0'
             }`"
         >
-            <div v-if="isSidebarOpen" class="p-5">
-                <div class="flex items-center justify-between mb-8">
-                    <Link :href="route('dashboard')" class="text-md font-semibold">nicefeature</Link>
+            <div v-if="isSidebarOpen" class="py-5 flex flex-col h-full">
+                <div class="flex items-center justify-between mb-4 px-5">
+                    <Link :href="route('dashboard')" class="text-md font-bold">nicefeature</Link>
                     <Button
                         @click="toggleSidebar"
                         severity="secondary"
-                        class="p-1"
+                        class="p-1 bg-slate-50 border-slate-50 hover:bg-slate-200 hover:border-slate-200"
                     >
                         <ChevronsLeftIcon :size="16" />
                     </Button>
                 </div>
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-1 pl-3 pr-5 flex-1">
                     <SidebarLink
                         :href="route('feedback')"
                         :active="route().current('feedback')"
                     >
-                        <StarIcon :size="16" class="mr-1" />
+                        <StarIcon :size="16" />
                         Feedback
                     </SidebarLink>
                     <SidebarLink
                         :href="route('roadmap')"
                         :active="route().current('roadmap')"
                     >
-                        <MapIcon :size="16" class="mr-1" />
+                        <MapIcon :size="16" />
                         Roadmap
                     </SidebarLink>
                     <SidebarLink
                         :href="route('changelog')"
                         :active="route().current('changelog')"
                     >
-                        <RocketIcon :size="16" class="mr-1" />
+                        <RocketIcon :size="16" />
                         Changelog
+                    </SidebarLink>
+                </div>
+                <div class="pl-3 pr-5">
+                    <SidebarLink
+                        :href="route('logout')"
+                        method="post"
+                    >
+                        <LogOutIcon :size="16" />
+                        Logout
                     </SidebarLink>
                 </div>
             </div>
