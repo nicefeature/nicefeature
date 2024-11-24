@@ -7,10 +7,16 @@ import { Button } from 'primevue';
 <template>
     <div class="p-10">
         Sidebar comes here... <br>
-        <Button class="text-sm font-semibold">
-            <PlusIcon :size="14" />
-            Create new board
-        </Button>
+        <div class="flex gap-2 my-4">
+            <Button label="Primary" />
+            <Button label="Secondary" severity="secondary" />
+            <Button label="Success" severity="success" />
+            <Button label="Info" severity="info" />
+            <Button label="Warn" severity="warn" />
+            <Button label="Help" severity="help" />
+            <Button label="Danger" severity="danger" />
+            <Button label="Contrast" severity="contrast" />
+        </div>
         <slot />
     </div>
 </template>
