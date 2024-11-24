@@ -1,22 +1,13 @@
 <script setup lang="ts">
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import SidebarLayout from '@/Layouts/SidebarLayout.vue';
 import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
     <Head title="Feedback" />
 
-    <AuthenticatedLayout>
-        <div class="py-12">
-            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div
-                    class="overflow-hidden bg-white shadow-sm sm:rounded-lg"
-                >
-                    <div class="p-6 text-gray-900">
-                        Feedback on all your boards will come here...
-                    </div>
-                </div>
-            </div>
-        </div>
-    </AuthenticatedLayout>
+    <SidebarLayout>
+        <template #header>Feedback</template>
+        <div>Feedback on all your boards will come here...</div>
+    </SidebarLayout>
 </template>

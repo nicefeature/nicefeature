@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-vue-next';
+import SidebarLink from '@/Components/SidebarLink.vue';
+import { Link } from '@inertiajs/vue3';
+import { ChevronsLeftIcon, ChevronsRightIcon, MapIcon, RocketIcon, StarIcon } from 'lucide-vue-next';
 import { Button } from 'primevue';
 import { ref } from 'vue';
 
@@ -20,7 +22,7 @@ const toggleSidebar = () => {
         >
             <div v-if="isSidebarOpen" class="p-5">
                 <div class="flex items-center justify-between mb-8">
-                    <p class="text-md font-semibold">nicefeature</p>
+                    <Link :href="route('dashboard')" class="text-md font-semibold">nicefeature</Link>
                     <Button
                         @click="toggleSidebar"
                         severity="secondary"
@@ -29,8 +31,28 @@ const toggleSidebar = () => {
                         <ChevronsLeftIcon :size="16" />
                     </Button>
                 </div>
-                <div>
-                    Menu comes here...
+                <div class="flex flex-col gap-2">
+                    <SidebarLink
+                        :href="route('feedback')"
+                        :active="route().current('feedback')"
+                    >
+                        <StarIcon :size="16" class="mr-1" />
+                        Feedback
+                    </SidebarLink>
+                    <SidebarLink
+                        :href="route('roadmap')"
+                        :active="route().current('roadmap')"
+                    >
+                        <MapIcon :size="16" class="mr-1" />
+                        Roadmap
+                    </SidebarLink>
+                    <SidebarLink
+                        :href="route('changelog')"
+                        :active="route().current('changelog')"
+                    >
+                        <RocketIcon :size="16" class="mr-1" />
+                        Changelog
+                    </SidebarLink>
                 </div>
             </div>
         </div>
