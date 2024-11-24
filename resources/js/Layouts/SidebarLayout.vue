@@ -40,14 +40,19 @@ const toggleSidebar = () => {
             v-if="!isSidebarOpen"
             @click="toggleSidebar"
             severity="secondary"
-            class="p-1 m-4"
+            class="p-1 ml-4 mt-5 size-fit"
         >
             <ChevronsRightIcon :size="16" />
         </Button>
 
         <!-- Page Content -->
         <main class="flex-1">
-            <slot />
+            <header class="my-6 ml-5 text-sm uppercase font-semibold tracking-widest text-slate-600">
+                <slot name="header" />
+            </header>
+            <div class="ml-5">
+                <slot />
+            </div>
         </main>
     </div>
 </template>
