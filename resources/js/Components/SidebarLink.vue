@@ -17,7 +17,7 @@ const classes = computed(() =>
 
 <template>
     <Link :href="href">
-        <Button severity="secondary" :class="classes" class="text-sm font-semibold py-1 px-2 w-full justify-start gap-4">
+        <Button severity="secondary" :class="classes" class="text-sm font-semibold py-1 px-3 w-full justify-start gap-4">
             <slot />
         </Button>
     </Link>
