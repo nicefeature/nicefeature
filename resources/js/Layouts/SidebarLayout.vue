@@ -16,17 +16,17 @@ const toggleSidebar = () => {
     <div :class="`flex ${isSidebarOpen ? 'h-screen' : ''}`">
         <!-- Sidebar -->
         <div
-            :class="`bg-slate-50 border-slate-100 border-r transition-all duration-300 h-full overflow-hidden relative ${
+            :class="`bg-zinc-50 border-zinc-100 border-r transition-all duration-300 h-full overflow-hidden relative ${
                 isSidebarOpen ? 'w-64' : 'w-0'
             }`"
         >
             <div v-if="isSidebarOpen" class="py-5 flex flex-col h-full">
                 <div class="flex items-center justify-between mb-4 px-5">
-                    <Link :href="route('dashboard')" class="text-md font-bold">nicefeature</Link>
+                    <Link :href="route('dashboard')" class="text-md font-bold">nicefeature.io</Link>
                     <Button
                         @click="toggleSidebar"
                         severity="secondary"
-                        class="p-1 bg-slate-50 border-slate-50 hover:bg-slate-200 hover:border-slate-200"
+                        class="p-1 bg-zinc-50 border-zinc-50 hover:bg-zinc-200 hover:border-zinc-200"
                     >
                         <ChevronsLeftIcon :size="16" />
                     </Button>
@@ -78,7 +78,7 @@ const toggleSidebar = () => {
 
         <!-- Page Content -->
         <main class="flex-1">
-            <header class="my-6 ml-5 text-sm uppercase font-semibold tracking-widest text-slate-600">
+            <header class="my-6 ml-5 text-sm uppercase font-semibold tracking-widest text-zinc-600">
                 <slot name="header" />
             </header>
             <div class="ml-5">

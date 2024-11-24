@@ -10,8 +10,8 @@ const props = defineProps<{
 
 const classes = computed(() =>
     props.active
-        ? 'bg-slate-200 border-slate-200 hover:bg-slate-200 hover:border-slate-200'
-        : 'bg-slate-50 border-slate-50 hover:bg-slate-200 hover:border-slate-200',
+        ? 'bg-zinc-200 border-zinc-200 hover:bg-zinc-200 hover:border-zinc-200'
+        : 'bg-zinc-50 border-zinc-50 hover:bg-zinc-200 hover:border-zinc-200',
 );
 </script>
 
