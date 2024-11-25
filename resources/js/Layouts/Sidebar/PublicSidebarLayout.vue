@@ -2,7 +2,7 @@
 import BaseSidebarLayout from './BaseSidebarLayout.vue';
 import SidebarLink from '@/Components/SidebarLink.vue';
 import { Link } from '@inertiajs/vue3';
-import { LogOutIcon, MapIcon, RocketIcon, StarIcon } from 'lucide-vue-next';
+import { MapIcon, RocketIcon, ShieldIcon, StarIcon } from 'lucide-vue-next';
 </script>
 
 <template>
@@ -38,11 +38,10 @@ import { LogOutIcon, MapIcon, RocketIcon, StarIcon } from 'lucide-vue-next';
         </template>
         <template #sidebarBottomLinks>
             <SidebarLink
-                :href="route('logout')"
-                method="post"
+                :href="route('admin')"
             >
-                <LogOutIcon :size="16" />
-                Logout
+                <ShieldIcon :size="16" />
+                Admin Panel
             </SidebarLink>
         </template>
         <template #header>
