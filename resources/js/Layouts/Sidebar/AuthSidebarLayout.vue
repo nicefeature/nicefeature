@@ -1,92 +1,55 @@
 <script setup lang="ts">
+import BaseSidebarLayout from './BaseSidebarLayout.vue';
 import SidebarLink from '@/Components/SidebarLink.vue';
 import { Link } from '@inertiajs/vue3';
-import { ChevronsLeftIcon, ChevronsRightIcon, LogOutIcon, MapIcon, RocketIcon, StarIcon } from 'lucide-vue-next';
-import { Button } from 'primevue';
-import { ref } from 'vue';
-
-const isSidebarOpen = ref<boolean>(true);
-const toggleSidebar = () => {
-    isSidebarOpen.value = !isSidebarOpen.value;
-}
+import { LogOutIcon, MapIcon, RocketIcon, StarIcon } from 'lucide-vue-next';
 </script>
 
-<!-- TODO: Make sidebar responsive -->
 <template>
-    <div :class="`flex ${isSidebarOpen ? 'h-screen' : ''}`">
-        <!-- Sidebar -->
-        <div
-            :class="`bg-zinc-50 border-zinc-100 border-r transition-all duration-300 h-full overflow-hidden relative ${
-                isSidebarOpen ? 'w-64' : 'w-0'
-            }`"
-        >
-            <div v-if="isSidebarOpen" class="py-5 flex flex-col h-full">
-                <div class="flex items-center justify-between mb-4 px-5">
-                    <Link :href="route('admin')" class="text-md font-bold flex items-center gap-2">
-                        <img src="https://avatars.githubusercontent.com/u/189303411?s=200&v=4" class="size-6 rounded" />
-                        nicefeature.io
-                    </Link>
-                    <Button
-                        @click="toggleSidebar"
-                        severity="secondary"
-                        class="p-1 bg-zinc-50 border-zinc-50 hover:bg-zinc-200 hover:border-zinc-200"
-                    >
-                        <ChevronsLeftIcon :size="16" />
-                    </Button>
-                </div>
-                <div class="flex flex-col gap-1 pl-3 pr-5 flex-1">
-                    <SidebarLink
-                        :href="route('feedback')"
-                        :active="route().current('feedback')"
-                    >
-                        <StarIcon :size="16" />
-                        Feedback
-                    </SidebarLink>
-                    <SidebarLink
-                        :href="route('roadmap')"
-                        :active="route().current('roadmap')"
-                    >
-                        <MapIcon :size="16" />
-                        Roadmap
-                    </SidebarLink>
-                    <SidebarLink
-                        :href="route('changelog')"
-                        :active="route().current('changelog')"
-                    >
-                        <RocketIcon :size="16" />
-                        Changelog
-                    </SidebarLink>
-                </div>
-                <div class="pl-3 pr-5">
-                    <SidebarLink
-                        :href="route('logout')"
-                        method="post"
-                    >
-                        <LogOutIcon :size="16" />
-                        Logout
-                    </SidebarLink>
-                </div>
-            </div>
-        </div>
-
-        <!-- Open Button -->
-        <Button
-            v-if="!isSidebarOpen"
-            @click="toggleSidebar"
-            severity="secondary"
-            class="p-1 ml-4 mt-5 size-fit"
-        >
-            <ChevronsRightIcon :size="16" />
-        </Button>
-
-        <!-- Page Content -->
-        <main class="flex-1">
-            <header class="my-6 ml-5 text-sm uppercase font-semibold tracking-widest text-zinc-600">
-                <slot name="header" />
-            </header>
-            <div class="ml-5">
-                <slot />
-            </div>
-        </main>
-    </div>
+    <BaseSidebarLayout>
+        <template #sidebarLogo>
+            <Link :href="route('admin')" class="text-md font-bold flex items-center gap-2">
+                <img src="https://avatars.githubusercontent.com/u/189303411?s=200&v=4" class="size-6 rounded" />
+                nicefeature.io
+            </Link>
+        </template>
+        <template #sidebarTopLinks>
+            <SidebarLink
+                :href="route('feedback')"
+                :active="route().current('feedback')"
+            >
+                <StarIcon :size="16" />
+                Feedback
+            </SidebarLink>
+            <SidebarLink
+                :href="route('roadmap')"
+                :active="route().current('roadmap')"
+            >
+                <MapIcon :size="16" />
+                Roadmap
+            </SidebarLink>
+            <SidebarLink
+                :href="route('changelog')"
+                :active="route().current('changelog')"
+            >
+                <RocketIcon :size="16" />
+                Changelog
+            </SidebarLink>
+        </template>
+        <template #sidebarBottomLinks>
+            <SidebarLink
+                :href="route('logout')"
+                method="post"
+            >
+                <LogOutIcon :size="16" />
+                Logout
+            </SidebarLink>
+        </template>
+        <template #header>
+            <slot name="header" />
+        </template>
+        <template #mainContent>
+            <slot />
+        </template>
+    </BaseSidebarLayout>
 </template>
