@@ -1,67 +1,13 @@
 <script setup lang="ts">
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Head, Link } from '@inertiajs/vue3';
-
-defineProps<{
-    canLogin?: boolean;
-    canRegister?: boolean;
-}>();
+import PublicSidebarLayout from '@/Layouts/Sidebar/PublicSidebarLayout.vue';
+import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <Head title="Welcome" />
-    <div class="bg-white text-black/50">
+    <Head title="Roadmap" />
 
-        <div
-            class="relative flex min-h-screen flex-col items-center"
-        >
-            <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl flex flex-col min-h-screen">
-                <header
-                    class="flex py-10 justify-between"
-                >
-                    <div>
-                        <Link href="/" class="flex items-center justify-center font-black text-2xl text-black">
-                            <ApplicationLogo />
-                        </Link>
-                    </div>
-                    <nav v-if="canLogin" class="flex items-center">
-                        <Link
-                            v-if="$page.props.auth.user"
-                            :href="route('admin')"
-                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                        >
-                            admin
-                        </Link>
-
-                        <template v-else>
-                            <Link
-                                :href="route('login')"
-                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                            >
-                                Log in
-                            </Link>
-
-                            <Link
-                                v-if="canRegister"
-                                :href="route('register')"
-                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                            >
-                                Register
-                            </Link>
-                        </template>
-                    </nav>
-                </header>
-
-                <main class="mt-6 flex-1 flex items-center justify-center">
-                    Public feedback overview and voting will come here
-                </main>
-
-                <footer
-                    class="py-16 text-center text-sm text-black dark:text-white/70"
-                >
-                    powered by <span class="font-semibold">nicefeature</span>
-                </footer>
-            </div>
-        </div>
-    </div>
+    <PublicSidebarLayout>
+        <template #header>Home</template>
+        <div>Public overview will come here</div>
+    </PublicSidebarLayout>
 </template>
