@@ -22,7 +22,7 @@ const toggleSidebar = () => {
         >
             <div v-if="isSidebarOpen" class="py-5 flex flex-col h-full">
                 <div class="flex items-center justify-between mb-4 px-5">
-                    <Link :href="route('dashboard')" class="text-md font-bold flex items-center gap-2">
+                    <Link :href="route('admin')" class="text-md font-bold flex items-center gap-2">
                         <img src="https://avatars.githubusercontent.com/u/189303411?s=200&v=4" class="size-6 rounded" />
                         nicefeature.io
                     </Link>

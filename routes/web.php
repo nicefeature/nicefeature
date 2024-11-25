@@ -12,9 +12,9 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::get('/admin', function () {
+        return Inertia::render('AdminPanel');
+    })->name('admin');
 
     Route::get('/feedback', function () {
         return Inertia::render('Feedback');

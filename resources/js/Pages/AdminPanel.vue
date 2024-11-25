@@ -4,10 +4,10 @@ import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <Head title="Dashboard" />
+    <Head title="Admin Panel" />
 
     <SidebarLayout>
-        <template #header>Dashboard</template>
-        <div>Dashboard comes here...</div>
+        <template #header>Admin Panel</template>
+        <div>Admin Panel comes here...</div>
     </SidebarLayout>
 </template>
