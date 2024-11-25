@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import AdminSidebarLayout from '@/Layouts/Sidebar/AdminSidebarLayout.vue';
+import PublicSidebarLayout from '@/Layouts/Sidebar/PublicSidebarLayout.vue';
 import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
     <Head title="Roadmap" />
 
-    <AdminSidebarLayout>
+    <PublicSidebarLayout>
         <template #header>Roadmap</template>
-        <div>Roadmap will come here...</div>
-    </AdminSidebarLayout>
+        <div>Public Roadmap View</div>
+    </PublicSidebarLayout>
 </template>

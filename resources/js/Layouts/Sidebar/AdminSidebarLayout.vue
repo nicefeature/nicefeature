@@ -15,22 +15,22 @@ import { LogOutIcon, MapIcon, RocketIcon, StarIcon } from 'lucide-vue-next';
         </template>
         <template #sidebarTopLinks>
             <SidebarLink
-                :href="route('feedback')"
-                :active="route().current('feedback')"
+                :href="route('admin/feedback')"
+                :active="route().current('admin/feedback')"
             >
                 <StarIcon :size="16" />
                 Feedback
             </SidebarLink>
             <SidebarLink
-                :href="route('roadmap')"
-                :active="route().current('roadmap')"
+                :href="route('admin/roadmap')"
+                :active="route().current('admin/roadmap')"
             >
                 <MapIcon :size="16" />
                 Roadmap
             </SidebarLink>
             <SidebarLink
-                :href="route('changelog')"
-                :active="route().current('changelog')"
+                :href="route('admin/changelog')"
+                :active="route().current('admin/changelog')"
             >
                 <RocketIcon :size="16" />
                 Changelog

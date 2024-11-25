@@ -32,7 +32,7 @@ const toggleSidebar = () => {
                 <div class="flex flex-col gap-1 pl-3 pr-5 flex-1">
                     <slot name="sidebarTopLinks" />
                 </div>
-                <div class="pl-3 pr-5">
+                <div class="flex flex-col gap-1 pl-3 pr-5">
                     <slot name="sidebarBottomLinks" />
                 </div>
             </div>

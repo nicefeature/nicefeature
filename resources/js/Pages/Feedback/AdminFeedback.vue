@@ -7,7 +7,7 @@ import { Head } from '@inertiajs/vue3';
     <Head title="Feedback" />
 
     <AdminSidebarLayout>
-        <template #header>Feedback</template>
-        <div>Feedback on all your boards will come here...</div>
+        <template #header>Admin Panel » Feedback</template>
+        <div>Admin Feedback View</div>
     </AdminSidebarLayout>
 </template>

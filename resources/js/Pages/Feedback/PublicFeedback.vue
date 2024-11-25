@@ -4,10 +4,10 @@ import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <Head title="Home" />
+    <Head title="Feedback" />
 
     <PublicSidebarLayout>
-        <template #header>Home</template>
-        <div>Public Homepage</div>
+        <template #header>Feedback</template>
+        <div>Public Feedback View</div>
     </PublicSidebarLayout>
 </template>
