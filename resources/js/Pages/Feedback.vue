@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import AuthSidebarLayout from '@/Layouts/Sidebar/AuthSidebarLayout.vue';
+import AdminSidebarLayout from '@/Layouts/Sidebar/AdminSidebarLayout.vue';
 import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
     <Head title="Feedback" />
 
-    <AuthSidebarLayout>
+    <AdminSidebarLayout>
         <template #header>Feedback</template>
         <div>Feedback on all your boards will come here...</div>
-    </AuthSidebarLayout>
+    </AdminSidebarLayout>
 </template>
