@@ -3,6 +3,7 @@ import BaseSidebarLayout from './BaseSidebarLayout.vue';
 import SidebarLink from '@/Components/SidebarLink.vue';
 import { Link } from '@inertiajs/vue3';
 import { MapIcon, RocketIcon, ShieldIcon, StarIcon } from 'lucide-vue-next';
+import { Divider } from 'primevue';
 </script>
 
 <template>
@@ -14,6 +15,13 @@ import { MapIcon, RocketIcon, ShieldIcon, StarIcon } from 'lucide-vue-next';
             </Link>
         </template>
         <template #sidebarTopLinks>
+            <SidebarLink
+                :href="route('admin')"
+            >
+                <ShieldIcon :size="16" />
+                Admin Panel
+            </SidebarLink>
+            <Divider class="p-0 m-0" />
             <SidebarLink
                 :href="route('feedback')"
                 :active="route().current('feedback')"
@@ -37,12 +45,9 @@ import { MapIcon, RocketIcon, ShieldIcon, StarIcon } from 'lucide-vue-next';
             </SidebarLink>
         </template>
         <template #sidebarBottomLinks>
-            <SidebarLink
-                :href="route('admin')"
-            >
-                <ShieldIcon :size="16" />
-                Admin Panel
-            </SidebarLink>
+            <div class="text-xs text-center">
+                powered by <span class="font-semibold">nicefeature</span>
+            </div>
         </template>
         <template #header>
             <slot name="header" />
