@@ -17,11 +17,11 @@ import { Divider } from 'primevue';
         <template #sidebarTopLinks>
             <SidebarLink
                 :href="route('admin')"
+                class="mb-4"
             >
                 <ShieldIcon :size="16" />
                 Admin Panel
             </SidebarLink>
-            <Divider class="p-0 m-0" />
             <SidebarLink
                 :href="route('feedback')"
                 :active="route().current('feedback')"

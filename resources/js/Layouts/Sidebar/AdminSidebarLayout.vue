@@ -3,6 +3,7 @@ import BaseSidebarLayout from './BaseSidebarLayout.vue';
 import SidebarLink from '@/Components/SidebarLink.vue';
 import { Link } from '@inertiajs/vue3';
 import { LogOutIcon, MapIcon, RocketIcon, StarIcon } from 'lucide-vue-next';
+import { Message } from 'primevue';
 </script>
 
 <template>
@@ -12,6 +13,14 @@ import { LogOutIcon, MapIcon, RocketIcon, StarIcon } from 'lucide-vue-next';
                 <img src="https://avatars.githubusercontent.com/u/189303411?s=200&v=4" class="size-6 rounded" />
                 nicefeature.io
             </Link>
+        </template>
+        <template #message>
+            <Message class="mx-5 mb-6">
+                <div class="text-xs">
+                    <p class="font-semibold uppercase">Admin View</p>
+                    <Link href="/" class="hover:underline">Switch to Public Site</Link>
+                </div>
+            </Message>
         </template>
         <template #sidebarTopLinks>
             <SidebarLink

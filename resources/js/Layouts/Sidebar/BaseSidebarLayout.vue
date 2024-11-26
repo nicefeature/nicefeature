@@ -19,7 +19,7 @@ const toggleSidebar = () => {
             }`"
         >
             <div v-if="isSidebarOpen" class="py-5 flex flex-col h-full">
-                <div class="flex items-center justify-between mb-4 px-5">
+                <div class="flex items-center justify-between mb-8 px-5">
                     <slot name="sidebarLogo" />
                     <Button
                         @click="toggleSidebar"
@@ -29,6 +29,7 @@ const toggleSidebar = () => {
                         <ChevronsLeftIcon :size="16" />
                     </Button>
                 </div>
+                <slot name="message" />
                 <div class="flex flex-col gap-1 pl-3 pr-5 flex-1">
                     <slot name="sidebarTopLinks" />
                 </div>
