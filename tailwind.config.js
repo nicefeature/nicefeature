@@ -15,6 +15,7 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            // TODO: Remove colors after old components are replaced by PrimeVue
             colors: {
                 primary: {
                     DEFAULT: '#000000',
@@ -26,5 +27,8 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        require('tailwindcss-primeui'),
+    ],
 };
