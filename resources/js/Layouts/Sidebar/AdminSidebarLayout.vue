@@ -18,7 +18,7 @@ import { Message } from 'primevue';
             <Message class="mx-5 mb-6">
                 <div class="text-xs">
                     <p class="font-semibold uppercase">Admin View</p>
-                    <Link href="/" class="hover:underline">Switch to Public Site</Link>
+                    <Link href="/" class="hover:underline">Switch to Public View</Link>
                 </div>
             </Message>
         </template>
