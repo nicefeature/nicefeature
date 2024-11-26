@@ -2,8 +2,7 @@
 import BaseSidebarLayout from './BaseSidebarLayout.vue';
 import SidebarLink from '@/Components/SidebarLink.vue';
 import { Link } from '@inertiajs/vue3';
-import { MapIcon, RocketIcon, ShieldIcon, StarIcon } from 'lucide-vue-next';
-import { Divider } from 'primevue';
+import { IdCardIcon, LogInIcon, MapIcon, RocketIcon, ShieldIcon, StarIcon } from 'lucide-vue-next';
 </script>
 
 <template>
@@ -16,12 +15,29 @@ import { Divider } from 'primevue';
         </template>
         <template #sidebarTopLinks>
             <SidebarLink
+                v-if="$page.props.auth.user"
                 :href="route('admin')"
                 class="mb-4"
             >
                 <ShieldIcon :size="16" />
                 Admin Panel
             </SidebarLink>
+            <template v-else>
+                <SidebarLink
+                    :href="route('login')"
+                >
+                    <LogInIcon :size="16" />
+                    Log in
+                </SidebarLink>
+                <SidebarLink
+                    :href="route('register')"
+                    class="mb-6"
+                >
+                    <IdCardIcon :size="16" />
+                    Register
+                </SidebarLink>
+            </template>
+
             <SidebarLink
                 :href="route('feedback')"
                 :active="route().current('feedback')"

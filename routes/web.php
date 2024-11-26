@@ -8,10 +8,7 @@ use Inertia\Inertia;
  * PUBLIC ROUTES
  */
 Route::get('/', function () {
-    return Inertia::render('Home', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-    ]);
+    return Inertia::render('Home');
 });
 
 Route::get('/feedback', function () {
