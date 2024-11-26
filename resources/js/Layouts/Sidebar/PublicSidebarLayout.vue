@@ -46,7 +46,9 @@ import { Divider } from 'primevue';
         </template>
         <template #sidebarBottomLinks>
             <div class="text-xs text-center">
-                powered by <span class="font-semibold">nicefeature</span>
+                <a href="https://nicefeature.io" class="hover:underline">
+                    powered by <span class="font-semibold">nicefeature</span>
+                </a>
             </div>
         </template>
         <template #header>
