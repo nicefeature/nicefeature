@@ -3,8 +3,7 @@ import SidebarLinkFeedback from '@/Components/SidebarLinkFeedback.vue';
 import BaseSidebarLayout from './BaseSidebarLayout.vue';
 import SidebarLink from '@/Components/SidebarLink.vue';
 import { Link } from '@inertiajs/vue3';
-import { LogOutIcon, MapIcon, RocketIcon, StarIcon } from 'lucide-vue-next';
-import { Message } from 'primevue';
+import { LogOutIcon, MapIcon, RocketIcon } from 'lucide-vue-next';
 </script>
 
 <template>
@@ -16,12 +15,10 @@ import { Message } from 'primevue';
             </Link>
         </template>
         <template #message>
-            <Message class="mx-5 mb-6">
-                <div class="text-xs">
-                    <p class="font-semibold uppercase">Admin View</p>
-                    <Link href="/" class="hover:underline">Switch to Public View</Link>
-                </div>
-            </Message>
+            <div class="text-xs mx-5 mb-6 bg-blue-50 border border-blue-200 text-blue-500 px-3 p-2 rounded-md">
+                <p class="font-semibold uppercase">Admin View</p>
+                <Link href="/" class="hover:underline">Switch to Public View</Link>
+            </div>
         </template>
         <template #sidebarTopLinks>
             <SidebarLinkFeedback

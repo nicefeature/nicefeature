@@ -16,6 +16,7 @@ const classes = computed(() =>
         : 'bg-zinc-50 border-zinc-50 hover:bg-zinc-200 hover:border-zinc-200',
 );
 
+// TODO: Create a new empty board via PHP, redirect and then set focus on the "Name" editable
 function createBoard() {
     console.log('creating board...')
 }
@@ -39,4 +40,10 @@ function createBoard() {
             </Button>
         </Button>
     </Link>
+    <div
+        v-if="isAdminPage"
+        class="text-xs text-primary-500 mb-4 mt-2 ml-4 mr-2"
+    >
+        You have no feedback boards yet, but you can <span class="underline cursor-pointer hover:text-primary-700" @click="createBoard">create a new one</span>
+    </div>
 </template>

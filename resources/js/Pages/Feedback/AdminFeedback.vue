@@ -7,9 +7,8 @@ import { Head } from '@inertiajs/vue3';
     <Head title="Feedback" />
 
     <AdminSidebarLayout>
-        <template #header>Admin Panel » Feedback</template>
-        <div>
-            You have no feedback boards yet, but you can <span class="underline cursor-pointer">create a first one here</span>!
-        </div>
+        <template #header>Admin » Feedback</template>
+        <h1 class="text-2xl font-semibold mb-2">Feedback</h1>
+        <p class="text-primary-500">You have no feedback boards yet.</p>
     </AdminSidebarLayout>
 </template>
