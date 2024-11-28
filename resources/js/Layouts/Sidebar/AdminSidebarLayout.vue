@@ -27,6 +27,7 @@ import { Message } from 'primevue';
             <SidebarLinkFeedback
                 :href="route('admin/feedback')"
                 :active="route().current('admin/feedback')"
+                :isAdminPage="true"
             />
             <SidebarLink
                 :href="route('admin/roadmap')"

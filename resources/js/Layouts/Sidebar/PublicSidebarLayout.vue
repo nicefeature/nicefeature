@@ -42,6 +42,7 @@ import { IdCardIcon, LogInIcon, MapIcon, RocketIcon, ShieldIcon, StarIcon } from
             <SidebarLinkFeedback
                 :href="route('feedback')"
                 :active="route().current('feedback')"
+                :isAdminPage="false"
             />
             <SidebarLink
                 :href="route('roadmap')"

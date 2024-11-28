@@ -2,11 +2,12 @@
 import { computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { Button } from 'primevue';
-import { StarIcon } from 'lucide-vue-next';
+import { PlusIcon, StarIcon } from 'lucide-vue-next';
 
 const props = defineProps<{
     href: string;
-    active?: boolean;
+    active: boolean;
+    isAdminPage: boolean;
 }>();
 
 const classes = computed(() =>
@@ -18,9 +19,19 @@ const classes = computed(() =>
 
 <template>
     <Link :href="href" as="button">
-        <Button severity="secondary" :class="classes" class="text-sm font-semibold py-1 px-3 w-full justify-start gap-4">
-            <StarIcon :size="16" />
-            Feedback
+        <Button severity="secondary" :class="classes" class="text-sm font-semibold py-1 px-3 w-full justify-between">
+            <div class="flex gap-4 items-center">
+                <StarIcon :size="16" />
+                Feedback
+            </div>
+            <Button
+                v-if="isAdminPage"
+                @click="console.log('create board...')"
+                severity="secondary"
+                class="p-[1px] bg-transparent border-transparent hover:bg-zinc-300 hover:border-zinc-300"
+            >
+                <PlusIcon :size="16" />
+            </Button>
         </Button>
     </Link>
 </template>
