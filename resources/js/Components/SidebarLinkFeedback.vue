@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { Button } from 'primevue';
 import { PlusIcon, StarIcon } from 'lucide-vue-next';
@@ -19,7 +19,7 @@ const classes = computed(() =>
 
 <template>
     <Link :href="href" as="button">
-        <Button severity="secondary" :class="classes" class="text-sm font-semibold py-1 px-3 w-full justify-between">
+        <Button severity="secondary" :class="classes" class="text-sm font-semibold py-1 pl-3 pr-2 w-full justify-between">
             <div class="flex gap-4 items-center">
                 <StarIcon :size="16" />
                 Feedback
