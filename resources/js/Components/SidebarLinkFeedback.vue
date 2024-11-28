@@ -39,10 +39,4 @@ function createBoard() {
             </Button>
         </Button>
     </Link>
-    <div
-        v-if="isAdminPage"
-        class="text-xs pl-4 pr-2 pt-1 pb-3 text-primary-500"
-    >
-        You have no feedback boards yet, but you can <span class="underline cursor-pointer" @click="createBoard">create a new one</span>
-    </div>
 </template>
