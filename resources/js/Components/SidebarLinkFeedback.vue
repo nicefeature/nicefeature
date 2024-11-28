@@ -29,6 +29,7 @@ const classes = computed(() =>
                 @click="console.log('create board...')"
                 severity="secondary"
                 class="p-[1px] bg-transparent border-transparent hover:bg-zinc-300 hover:border-zinc-300"
+                v-tooltip.bottom="{ value: 'Create new board', class: 'text-xs' }"
             >
                 <PlusIcon :size="16" />
             </Button>

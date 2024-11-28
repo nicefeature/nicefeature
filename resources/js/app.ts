@@ -7,6 +7,7 @@ import { createApp, DefineComponent, h } from 'vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 import { PrimeVue } from '@primevue/core';
 import { Noir } from './theme';
+import Tooltip from 'primevue/tooltip';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -32,6 +33,7 @@ createInertiaApp({
                     },
                 }
             })
+            .directive('tooltip', Tooltip)
             .mount(el);
     },
     progress: {
