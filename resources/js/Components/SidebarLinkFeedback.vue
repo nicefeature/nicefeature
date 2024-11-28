@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { Button } from 'primevue';
 import { PlusIcon, StarIcon } from 'lucide-vue-next';
@@ -15,6 +15,10 @@ const classes = computed(() =>
         ? 'bg-zinc-200 border-zinc-200 hover:bg-zinc-200 hover:border-zinc-200'
         : 'bg-zinc-50 border-zinc-50 hover:bg-zinc-200 hover:border-zinc-200',
 );
+
+function createBoard() {
+    console.log('creating board...')
+}
 </script>
 
 <template>
@@ -26,7 +30,7 @@ const classes = computed(() =>
             </div>
             <Button
                 v-if="isAdminPage"
-                @click="console.log('create board...')"
+                @click="createBoard"
                 severity="secondary"
                 class="p-[1px] bg-transparent border-transparent hover:bg-zinc-300 hover:border-zinc-300"
                 v-tooltip.bottom="{ value: 'Create new board', class: 'text-xs' }"
@@ -35,4 +39,10 @@ const classes = computed(() =>
             </Button>
         </Button>
     </Link>
+    <div
+        v-if="isAdminPage"
+        class="text-xs pl-4 pr-2 pt-1 pb-3 text-primary-500"
+    >
+        You have no feedback boards yet, but you can <span class="underline cursor-pointer" @click="createBoard">create a new one</span>
+    </div>
 </template>
