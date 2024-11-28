@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BaseSidebarLayout from './BaseSidebarLayout.vue';
 import SidebarLink from '@/Components/SidebarLink.vue';
+import SidebarLinkFeedback from '@/Components/SidebarLinkFeedback.vue';
 import { Link } from '@inertiajs/vue3';
 import { IdCardIcon, LogInIcon, MapIcon, RocketIcon, ShieldIcon, StarIcon } from 'lucide-vue-next';
 </script>
@@ -38,13 +39,10 @@ import { IdCardIcon, LogInIcon, MapIcon, RocketIcon, ShieldIcon, StarIcon } from
                 </SidebarLink>
             </template>
 
-            <SidebarLink
+            <SidebarLinkFeedback
                 :href="route('feedback')"
                 :active="route().current('feedback')"
-            >
-                <StarIcon :size="16" />
-                Feedback
-            </SidebarLink>
+            />
             <SidebarLink
                 :href="route('roadmap')"
                 :active="route().current('roadmap')"

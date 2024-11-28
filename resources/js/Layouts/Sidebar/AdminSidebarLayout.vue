@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SidebarLinkFeedback from '@/Components/SidebarLinkFeedback.vue';
 import BaseSidebarLayout from './BaseSidebarLayout.vue';
 import SidebarLink from '@/Components/SidebarLink.vue';
 import { Link } from '@inertiajs/vue3';
@@ -23,13 +24,10 @@ import { Message } from 'primevue';
             </Message>
         </template>
         <template #sidebarTopLinks>
-            <SidebarLink
+            <SidebarLinkFeedback
                 :href="route('admin/feedback')"
                 :active="route().current('admin/feedback')"
-            >
-                <StarIcon :size="16" />
-                Feedback
-            </SidebarLink>
+            />
             <SidebarLink
                 :href="route('admin/roadmap')"
                 :active="route().current('admin/roadmap')"
