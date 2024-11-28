@@ -9,7 +9,7 @@ import { Message } from 'primevue';
 <template>
     <BaseSidebarLayout>
         <template #sidebarLogo>
-            <Link :href="route('admin')" class="text-md font-bold flex items-center gap-2">
+            <Link :href="route('admin/feedback')" class="text-md font-bold flex items-center gap-2">
                 <img src="https://avatars.githubusercontent.com/u/189303411?s=200&v=4" class="size-6 rounded" />
                 nicefeature.io
             </Link>

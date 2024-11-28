@@ -8,10 +8,6 @@ use Inertia\Inertia;
  * PUBLIC ROUTES
  */
 Route::get('/', function () {
-    return Inertia::render('Home');
-});
-
-Route::get('/feedback', function () {
     return Inertia::render('Feedback/PublicFeedback');
 })->name('feedback');
 
@@ -28,10 +24,6 @@ Route::get('/changelog', function () {
  */
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin', function () {
-        return Inertia::render('AdminPanel');
-    })->name('admin');
-
-    Route::get('/admin/feedback', function () {
         return Inertia::render('Feedback/AdminFeedback');
     })->name('admin/feedback');
 
