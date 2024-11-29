@@ -9,7 +9,7 @@ import { LogOutIcon, MapIcon, RocketIcon } from 'lucide-vue-next';
 <template>
     <BaseSidebarLayout>
         <template #sidebarLogo>
-            <Link :href="route('admin/feedback')" class="text-md font-bold flex items-center gap-2">
+            <Link :href="route('admin.feedback')" class="text-md font-bold flex items-center gap-2">
                 <img src="https://avatars.githubusercontent.com/u/189303411?s=200&v=4" class="size-6 rounded" />
                 nicefeature.io
             </Link>
@@ -22,20 +22,20 @@ import { LogOutIcon, MapIcon, RocketIcon } from 'lucide-vue-next';
         </template>
         <template #sidebarTopLinks>
             <SidebarLinkFeedback
-                :href="route('admin/feedback')"
-                :active="route().current('admin/feedback')"
+                :href="route('admin.feedback')"
+                :active="route().current('admin.feedback')"
                 :isAdminPage="true"
             />
             <SidebarLink
-                :href="route('admin/roadmap')"
-                :active="route().current('admin/roadmap')"
+                :href="route('admin.roadmap')"
+                :active="route().current('admin.roadmap')"
             >
                 <MapIcon :size="16" />
                 Roadmap
             </SidebarLink>
             <SidebarLink
-                :href="route('admin/changelog')"
-                :active="route().current('admin/changelog')"
+                :href="route('admin.changelog')"
+                :active="route().current('admin.changelog')"
             >
                 <RocketIcon :size="16" />
                 Changelog

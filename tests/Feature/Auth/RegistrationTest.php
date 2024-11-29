@@ -15,5 +15,5 @@ test('new users can register', function () {
     ]);
 
     $this->assertAuthenticated();
-    $response->assertRedirect(route('admin/feedback', absolute: false));
+    $response->assertRedirect(route('admin.feedback', absolute: false));
 });

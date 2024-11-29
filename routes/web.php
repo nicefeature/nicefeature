@@ -21,7 +21,8 @@ Route::get('/changelog', function () {
     return Inertia::render('Changelog/PublicChangelog');
 })->name('changelog');
 
-Route::get('/b/{id}', [PublicBoardController::class, 'show'])->name('board.show');
+Route::get('/b/{id}', [PublicBoardController::class, 'show'])
+    ->name('board.show');
 
 /**
  * AUTH & VERIFIED
@@ -29,18 +30,21 @@ Route::get('/b/{id}', [PublicBoardController::class, 'show'])->name('board.show'
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin', function () {
         return Inertia::render('Feedback/AdminFeedback');
-    })->name('admin/feedback');
+    })->name('admin.feedback');
 
     Route::get('/admin/roadmap', function () {
         return Inertia::render('Roadmap/AdminRoadmap');
-    })->name(name: 'admin/roadmap');
+    })->name(name: 'admin.roadmap');
 
     Route::get('/admin/changelog', function () {
         return Inertia::render('Changelog/AdminChangelog');
-    })->name('admin/changelog');
+    })->name('admin.changelog');
 
-    Route::get('/admin/boards/{id}', [AdminBoardController::class, 'show'])->name('admin.board.show');
-    Route::post('/admin/boards', [AdminBoardController::class, 'store'])->name('admin.board.store');
+    Route::get('/admin/boards/{id}', [AdminBoardController::class, 'show'])
+        ->name('admin.board.show');
+
+    Route::post('/admin/boards', [AdminBoardController::class, 'store'])
+        ->name('admin.board.store');
 });
 
 /**

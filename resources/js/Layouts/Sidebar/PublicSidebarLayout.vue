@@ -17,7 +17,7 @@ import { IdCardIcon, LogInIcon, MapIcon, RocketIcon, ShieldIcon, StarIcon } from
         <template #sidebarTopLinks>
             <SidebarLink
                 v-if="$page.props.auth.user"
-                :href="route('admin/feedback')"
+                :href="route('admin.feedback')"
                 class="mb-4"
             >
                 <ShieldIcon :size="16" />
