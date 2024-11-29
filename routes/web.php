@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminBoardController;
+use App\Http\Controllers\Feedback\Board\AdminBoardController;
+use App\Http\Controllers\Feedback\Board\PublicBoardController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PublicBoardController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -21,7 +21,7 @@ Route::get('/changelog', function () {
     return Inertia::render('Changelog/PublicChangelog');
 })->name('changelog');
 
-Route::get('/b/:id', [PublicBoardController::class, 'show'])->name('board.show');
+Route::get('/b/{id}', [PublicBoardController::class, 'show'])->name('board.show');
 
 /**
  * AUTH & VERIFIED
@@ -39,7 +39,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('Changelog/AdminChangelog');
     })->name('admin/changelog');
 
-    Route::get('/admin/boards/:id', [AdminBoardController::class, 'show'])->name('admin.board.show');
+    Route::get('/admin/boards/{id}', [AdminBoardController::class, 'show'])->name('admin.board.show');
     Route::post('/admin/boards', [AdminBoardController::class, 'store'])->name('admin.board.store');
 });
 
