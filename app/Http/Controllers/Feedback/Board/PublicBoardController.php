@@ -11,7 +11,6 @@ class PublicBoardController extends Controller
 {
     public function show(string $id): Response
     {
-        // TODO: There is no Auth in public, change this. In OS Version we can fetch all boards.
         $board = Board::findOrFail($id);
 
         return Inertia::render('Feedback/Board/PublicBoard', [
