@@ -15,11 +15,6 @@ const classes = computed(() =>
         ? 'bg-zinc-200 border-zinc-200 hover:bg-zinc-200 hover:border-zinc-200'
         : 'bg-zinc-50 border-zinc-50 hover:bg-zinc-200 hover:border-zinc-200',
 );
-
-function createBoard() {
-    // TODO: Now redirect to admin.board.show with the ID (should I return a JSON instead and redirect here? Research!)
-    router.post(route('admin.board.store'));
-}
 </script>
 
 <template>
@@ -29,21 +24,22 @@ function createBoard() {
                 <StarIcon :size="16" />
                 Feedback
             </div>
-            <Button
+            <Link
                 v-if="isAdminPage"
-                @click="createBoard"
-                severity="secondary"
-                class="p-[1px] bg-transparent border-transparent hover:bg-zinc-300 hover:border-zinc-300"
+                as="button"
+                :href="route('admin.board.store')"
+                method="post"
+                class="p-[1px] rounded bg-transparent border-transparent hover:bg-zinc-300 hover:border-zinc-300"
                 v-tooltip.bottom="{ value: 'Create new board', class: 'text-xs' }"
             >
                 <PlusIcon :size="16" />
-            </Button>
+            </Link>
         </Button>
     </Link>
     <div
         v-if="isAdminPage"
         class="text-xs text-primary-500 mb-4 mt-2 ml-4 mr-2"
     >
-        You have no feedback boards yet, but you can <span class="underline cursor-pointer hover:text-primary-700" @click="createBoard">create a new one</span>
+        You have no feedback boards yet, but you can <Link class="underline cursor-pointer hover:text-primary-700" :href="route('admin.board.store')" method="post">create a new one</Link>
     </div>
 </template>

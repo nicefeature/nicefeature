@@ -10,6 +10,6 @@ import { Head } from '@inertiajs/vue3';
     <AdminSidebarLayout>
         <template #header>Admin » Feedback » Untitled Board</template>
         <h1 class="text-2xl font-semibold mb-2">Untitled Board</h1>
-        <p class="text-primary-500">Description comes here...</p>
+        <p class="text-primary-500">Description for {{ $page.props.board.id }} comes here...</p>
     </AdminSidebarLayout>
 </template>
