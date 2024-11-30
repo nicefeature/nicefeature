@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { Link } from '@inertiajs/vue3';
+import { Link, router } from '@inertiajs/vue3';
 import { Button } from 'primevue';
 import { PlusIcon, StarIcon } from 'lucide-vue-next';
 
@@ -16,9 +16,9 @@ const classes = computed(() =>
         : 'bg-zinc-50 border-zinc-50 hover:bg-zinc-200 hover:border-zinc-200',
 );
 
-// TODO: Create a new empty board via PHP, redirect and then set focus on the "Name" editable
 function createBoard() {
-    console.log('creating board...')
+    // TODO: Now redirect to admin.board.show with the ID (should I return a JSON instead and redirect here? Research!)
+    router.post(route('admin.board.store'));
 }
 </script>
 
