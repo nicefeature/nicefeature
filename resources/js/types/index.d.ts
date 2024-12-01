@@ -16,4 +16,5 @@ export type PageProps<
     };
     ziggy: Config & { location: string };
     board: Board;
+    boards: Board[];
 };
