@@ -60,7 +60,7 @@ const classes = computed(() =>
                 :class="route().current('admin.board.show', board.id) || route().current('board.show', board.id) ? activeClasses : inactiveClasses"
                 class="text-xs font-semibold py-1 pl-5 pr-2 w-full justify-between">
                 <div class="flex gap-2 items-end">
-                    <SquareDashedIcon :size="16" />
+                    <SquareDashedIcon v-if="isAdminPage":size="16" />
                     {{ board.title || 'Untitled Board' }}
                 </div>
             </Button>
