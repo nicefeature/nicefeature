@@ -25,6 +25,7 @@
     "dependencies": {
         "@primevue/themes": "^4.2.3",
         "lucide-vue-next": "^0.460.0",
-        "primevue": "^4.2.3"
+        "primevue": "^4.2.3",
+        "vue3-emoji-picker": "^1.1.8"
     }
 }

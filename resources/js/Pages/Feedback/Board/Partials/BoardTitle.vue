@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { EllipsisIcon, SquareDashedIcon } from 'lucide-vue-next';
 import { Button } from 'primevue';
+import EmojiPicker, { Emoji } from 'vue3-emoji-picker';
 
-const props = defineProps<{
+defineProps<{
     isAdminPage: boolean;
 }>();
+
+function onSelectEmoji(emoji: Emoji) {
+  console.log(emoji)
+}
 </script>
 
 <template>
@@ -27,5 +32,12 @@ const props = defineProps<{
         >
             <EllipsisIcon :size="30" />
         </Button>
+    </div>
+    <!-- Should be inside a dropdown -->
+    <div v-if="isAdminPage" class="w-fit my-10">
+        <EmojiPicker
+            :native="false"
+            @select="onSelectEmoji"
+        />
     </div>
 </template>
