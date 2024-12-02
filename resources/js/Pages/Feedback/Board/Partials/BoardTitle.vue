@@ -49,7 +49,10 @@ function onSelectEmoji(emoji: EmojiExt) {
             <EllipsisIcon :size="30" />
         </Button>
     </div>
-    <Popover v-if="isAdminPage" ref="emojiPicker">
+    <Popover
+        v-if="isAdminPage"
+        ref="emojiPicker"
+    >
         <EmojiPicker
             :native="true"
             :disable-skin-tones="true"
