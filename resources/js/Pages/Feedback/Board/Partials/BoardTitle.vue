@@ -36,7 +36,7 @@ function onSelectEmoji(emoji: Emoji) {
     <!-- Should be inside a dropdown -->
     <div v-if="isAdminPage" class="w-fit my-10">
         <EmojiPicker
-            :native="false"
+            :native="true"
             :disable-skin-tones="true"
             @select="onSelectEmoji"
         />
