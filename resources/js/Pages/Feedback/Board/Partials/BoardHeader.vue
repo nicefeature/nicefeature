@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EllipsisIcon, SquareDashedIcon } from 'lucide-vue-next';
+import { SettingsIcon, SquareDashedIcon } from 'lucide-vue-next';
 import { Button, Popover } from 'primevue';
 import EmojiPicker, { EmojiExt } from 'vue3-emoji-picker';
 import { router, usePage } from '@inertiajs/vue3'
@@ -45,8 +45,9 @@ function onSelectEmoji(emoji: EmojiExt) {
             v-if="isAdminPage"
             severity="secondary"
             class="p-[1px] w-fit h-fit bg-white border-white hover:bg-zinc-200 hover:border-zinc-200"
+            v-tooltip.bottom="{ value: 'Settings', class: 'text-xs' }"
         >
-            <EllipsisIcon :size="30" />
+            <SettingsIcon :size="30" />
         </Button>
     </div>
     <Popover
