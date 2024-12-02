@@ -1,17 +1,24 @@
 <script setup lang="ts">
 import { EllipsisIcon, SquareDashedIcon } from 'lucide-vue-next';
-import { Button } from 'primevue';
+import { Button, Popover } from 'primevue';
 import EmojiPicker, { EmojiExt } from 'vue3-emoji-picker';
 import { router, usePage } from '@inertiajs/vue3'
+import { ref } from 'vue';
 
 defineProps<{
     isAdminPage: boolean;
 }>();
 
+const emojiPicker = ref();
+const toggleEmojiPicker = (event: any) => {
+    emojiPicker.value.toggle(event);
+}
+
 const page = usePage();
 const boardId = page.props.board.id;
 
 function onSelectEmoji(emoji: EmojiExt) {
+    emojiPicker.value.hide();
     router.patch(route('admin.board.emoji.update', boardId), { emoji: emoji.i })
 }
 </script>
@@ -23,6 +30,7 @@ function onSelectEmoji(emoji: EmojiExt) {
             severity="secondary"
             class="p-[1px] w-fit h-fit bg-white border-white hover:bg-zinc-200 hover:border-zinc-200"
             v-tooltip.bottom="{ value: 'Change Emoji', class: 'text-xs' }"
+            @click="toggleEmojiPicker"
         >
             <SquareDashedIcon v-if="!$page.props.board.emoji" :size="30" />
             <div class="text-2xl" v-else>{{ $page.props.board.emoji }}</div>
@@ -41,12 +49,11 @@ function onSelectEmoji(emoji: EmojiExt) {
             <EllipsisIcon :size="30" />
         </Button>
     </div>
-    <!-- Should be inside a dropdown -->
-    <div v-if="isAdminPage" class="w-fit my-10">
+    <Popover v-if="isAdminPage" ref="emojiPicker">
         <EmojiPicker
             :native="true"
             :disable-skin-tones="true"
             @select="onSelectEmoji"
         />
-    </div>
+    </Popover>
 </template>
