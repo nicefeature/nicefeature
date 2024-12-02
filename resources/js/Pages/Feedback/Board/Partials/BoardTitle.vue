@@ -52,6 +52,7 @@ function onSelectEmoji(emoji: EmojiExt) {
     <Popover
         v-if="isAdminPage"
         ref="emojiPicker"
+        :unstyled="true"
     >
         <EmojiPicker
             :native="true"
