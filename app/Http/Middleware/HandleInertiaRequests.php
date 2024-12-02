@@ -40,7 +40,7 @@ class HandleInertiaRequests extends Middleware
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
-            'boards' => Board::select('id', 'title')
+            'boards' => Board::select('id', 'title', 'emoji')
                 ->orderBy('created_at', 'asc')
                 ->get(),
         ];

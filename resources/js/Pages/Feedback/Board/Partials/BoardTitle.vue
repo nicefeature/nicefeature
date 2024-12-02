@@ -27,7 +27,7 @@ function onSelectEmoji(emoji: EmojiExt) {
             <SquareDashedIcon v-if="!$page.props.board.emoji" :size="30" />
             <div class="text-2xl" v-else>{{ $page.props.board.emoji }}</div>
         </Button>
-        <div v-if="!isAdminPage && $page.props.board.emoji" class="text-2xl">
+        <div v-if="!isAdminPage && $page.props.board.emoji" class="text-2xl ml-[-4px]">
             {{ $page.props.board.emoji }}
         </div>
         <h1 class="text-2xl font-semibold flex-1">

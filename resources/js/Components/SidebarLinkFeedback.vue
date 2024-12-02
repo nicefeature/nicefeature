@@ -58,9 +58,9 @@ const classes = computed(() =>
             <Button
                 severity="secondary"
                 :class="route().current('admin.board.show', board.id) || route().current('board.show', board.id) ? activeClasses : inactiveClasses"
-                class="text-xs font-semibold py-1 pl-5 pr-2 w-full justify-between">
-                <div class="flex gap-2 items-end">
-                    <SquareDashedIcon v-if="isAdminPage":size="16" />
+                class="text-xs font-semibold py-1 pl-8 pr-2 w-full justify-between">
+                <div class="flex gap-1 items-center">
+                    <div v-if="board.emoji"class="text-sm ml-[-2px]">{{ board.emoji }}</div>
                     {{ board.title || 'Untitled Board' }}
                 </div>
             </Button>
