@@ -9,7 +9,7 @@ import BoardTitle from './Partials/BoardTitle.vue';
     <Head :title="$page.props.board.title || 'Untitled Board'" />
 
     <PublicSidebarLayout>
-        <BoardTitle />
+        <BoardTitle :isAdminPage="false" />
         <p class="text-primary-500">Description for {{ $page.props.board.id }} comes here...</p>
     </PublicSidebarLayout>
 </template>

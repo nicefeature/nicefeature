@@ -54,7 +54,7 @@ const toggleSidebar = () => {
             <header class="mt-14 mb-9 ml-20 text-sm uppercase font-semibold tracking-widest text-zinc-600">
                 <slot name="header" />
             </header>
-            <div class="ml-20">
+            <div class="ml-20 mr-40">
                 <slot name="mainContent"/>
             </div>
         </main>

@@ -10,7 +10,7 @@ import BoardTitle from './Partials/BoardTitle.vue';
 
     <AdminSidebarLayout>
         <template #header>Admin » Feedback » {{ $page.props.board.title || 'Untitled Board' }}</template>
-        <BoardTitle />
+        <BoardTitle :isAdminPage="true" />
         <p class="text-primary-500">Description for {{ $page.props.board.id }} comes here...</p>
     </AdminSidebarLayout>
 </template>
