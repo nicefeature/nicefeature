@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Feedback\Board\AdminBoardController;
+use App\Http\Controllers\Feedback\Board\EmojiController;
 use App\Http\Controllers\Feedback\Board\PublicBoardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::post('/admin/boards', [AdminBoardController::class, 'store'])
         ->name('admin.board.store');
+
+    Route::patch('/boards/{id}/emoji', [EmojiController::class, 'update'])
+        ->name('admin.board.emoji.update');
 });
 
 /**
