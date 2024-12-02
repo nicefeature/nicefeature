@@ -17,7 +17,7 @@ function onSelectEmoji(emoji: EmojiExt) {
 </script>
 
 <template>
-    <div class="flex items-center justify-between gap-4" :class="isAdminPage ? 'mb-6 ml-[-4px]' : 'mb-2'">
+    <div class="flex items-center justify-between gap-2" :class="isAdminPage ? 'mb-6 ml-[-4px]' : 'mb-2'">
         <Button
             v-if="isAdminPage"
             severity="secondary"
@@ -27,6 +27,9 @@ function onSelectEmoji(emoji: EmojiExt) {
             <SquareDashedIcon v-if="!$page.props.board.emoji" :size="30" />
             <div class="text-2xl" v-else>{{ $page.props.board.emoji }}</div>
         </Button>
+        <div v-if="!isAdminPage && $page.props.board.emoji" class="text-2xl">
+            {{ $page.props.board.emoji }}
+        </div>
         <h1 class="text-2xl font-semibold flex-1">
             {{ $page.props.board.title || 'Untitled Board' }}
         </h1>
