@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('title')->nullable();
             $table->string('description')->nullable();
+            $table->string('emoji')->nullable();
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
