@@ -13,6 +13,7 @@ class Board extends Model
     protected $fillable = [
         'title',
         'description',
+        'emoji',
     ];
 
     public function user()

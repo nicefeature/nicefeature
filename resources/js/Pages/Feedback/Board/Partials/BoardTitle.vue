@@ -20,7 +20,8 @@ function onSelectEmoji(emoji: Emoji) {
             class="p-[1px] w-fit h-fit bg-white border-white hover:bg-zinc-200 hover:border-zinc-200"
             v-tooltip.bottom="{ value: 'Change Emoji', class: 'text-xs' }"
         >
-            <SquareDashedIcon :size="30" />
+            <SquareDashedIcon v-if="!$page.props.board.emoji" :size="30" />
+            <div class="text-xl" v-else>{{ $page.props.board.emoji }}</div>
         </Button>
         <h1 class="text-2xl font-semibold flex-1">
             {{ $page.props.board.title || 'Untitled Board' }}

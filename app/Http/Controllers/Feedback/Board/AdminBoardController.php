@@ -25,6 +25,7 @@ class AdminBoardController extends Controller
         $board = Auth::user()->boards()->create([
             'title' => null,
             'description' => null,
+            'emoji' => null,
         ]);
 
         return Redirect::route('admin.board.show', ['id' => $board->id]);
