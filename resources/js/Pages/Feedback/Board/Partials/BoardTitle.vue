@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import { EllipsisIcon, SquareDashedIcon } from 'lucide-vue-next';
 import { Button } from 'primevue';
-import EmojiPicker, { Emoji } from 'vue3-emoji-picker';
+import EmojiPicker, { EmojiExt } from 'vue3-emoji-picker';
+import { router, usePage } from '@inertiajs/vue3'
 
 defineProps<{
     isAdminPage: boolean;
 }>();
 
-function onSelectEmoji(emoji: Emoji) {
-  console.log(emoji)
+const page = usePage();
+const boardId = page.props.board.id;
+
+function onSelectEmoji(emoji: EmojiExt) {
+    router.patch(route('admin.board.emoji.update', boardId), { emoji: emoji.i })
 }
 </script>
 
@@ -21,7 +25,7 @@ function onSelectEmoji(emoji: Emoji) {
             v-tooltip.bottom="{ value: 'Change Emoji', class: 'text-xs' }"
         >
             <SquareDashedIcon v-if="!$page.props.board.emoji" :size="30" />
-            <div class="text-xl" v-else>{{ $page.props.board.emoji }}</div>
+            <div class="text-2xl" v-else>{{ $page.props.board.emoji }}</div>
         </Button>
         <h1 class="text-2xl font-semibold flex-1">
             {{ $page.props.board.title || 'Untitled Board' }}

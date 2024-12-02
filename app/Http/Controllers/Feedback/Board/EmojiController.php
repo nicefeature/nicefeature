@@ -23,9 +23,6 @@ class EmojiController extends Controller
         $board->emoji = $validated['emoji'];
         $board->save();
 
-        return response()->json([
-            'message' => 'Emoji updated successfully',
-            'board' => $board,
-        ]);
+        return redirect()->back()->with('success', 'Emoji updated successfully');
     }
 }
