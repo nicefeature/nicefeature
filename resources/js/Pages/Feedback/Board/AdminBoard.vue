@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AdminSidebarLayout from '@/Layouts/Sidebar/AdminSidebarLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import BoardTitle from './Partials/BoardTitle.vue';
+import BoardHeader from './Partials/BoardHeader.vue';
 </script>
 
 <!-- Board title should come from DB, if it's null we put a placeholder -->
@@ -10,7 +10,7 @@ import BoardTitle from './Partials/BoardTitle.vue';
 
     <AdminSidebarLayout>
         <template #header>Admin » Feedback » {{ $page.props.board.title || 'Untitled Board' }}</template>
-        <BoardTitle :isAdminPage="true" />
+        <BoardHeader :isAdminPage="true" />
         <p class="text-primary-500">Description for {{ $page.props.board.id }} comes here...</p>
     </AdminSidebarLayout>
 </template>
