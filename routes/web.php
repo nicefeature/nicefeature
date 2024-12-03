@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Feedback\Board\AdminBoardController;
 use App\Http\Controllers\Feedback\Board\BoardSettingsController;
+use App\Http\Controllers\Feedback\Board\BoardVisibilityController;
 use App\Http\Controllers\Feedback\Board\EmojiController;
 use App\Http\Controllers\Feedback\Board\PublicBoardController;
 use App\Http\Controllers\ProfileController;
@@ -56,6 +57,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::patch('/boards/{id}/emoji', [EmojiController::class, 'update'])
         ->name('admin.board.emoji.update');
+
+    Route::patch('/boards/{id}/visibility', [BoardVisibilityController::class, 'update'])
+        ->name('admin.board.visibility.update');
 });
 
 /**

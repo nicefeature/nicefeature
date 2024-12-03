@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Button, Dialog } from 'primevue';
+import { router } from '@inertiajs/vue3'
 import { ref } from 'vue';
 
 const props = defineProps<{
@@ -11,7 +12,7 @@ const isConfirmModalVisible = ref(false);
 
 function onToggleVisibility() {
     isConfirmModalVisible.value = false;
-    //router.delete(route('admin.board.delete', props.boardId));
+    router.patch(route('admin.board.visibility.update', props.boardId), { isPublic: !props.isPublic })
 }
 </script>
 
