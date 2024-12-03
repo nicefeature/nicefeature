@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 import BoardHeader from '../Partials/BoardHeader.vue';
 import AdminSidebarLayout from '@/Layouts/Sidebar/AdminSidebarLayout.vue';
 import DeleteBoard from '../Partials/DeleteBoard.vue';
 import RemoveEmoji from '../Partials/RemoveEmoji.vue';
 import SetVisibility from '../Partials/SetVisibility.vue';
+import { Undo2Icon } from 'lucide-vue-next';
+import { Button } from 'primevue';
 </script>
 
 <template>
@@ -12,10 +14,19 @@ import SetVisibility from '../Partials/SetVisibility.vue';
 
     <AdminSidebarLayout>
         <template #header>Admin » Feedback » {{ $page.props.board.title || 'Untitled Board' }} » Settings</template>
-        <BoardHeader
-            :is-admin-page="true"
-            :board-id="$page.props.board.id"
-        />
+
+        <Link
+            :href="route('admin.board.show', $page.props.board.id)"
+        >
+            <Button
+                severity="secondary"
+                class="p-[1px] w-fit h-fit bg-white border-white hover:bg-zinc-200 hover:border-zinc-200"
+                v-tooltip.bottom="{ value: 'Go back', class: 'text-xs' }"
+            >
+                <Undo2Icon :size="30" />
+            </Button>
+        </Link>
+
         <SetVisibility
             :board-id="$page.props.board.id"
             :is-public="$page.props.board.is_public"
