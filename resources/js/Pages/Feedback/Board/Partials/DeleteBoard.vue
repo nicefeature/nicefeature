@@ -14,7 +14,7 @@ function onDeleteBoard() {
 </script>
 
 <template>
-    <div class="mt-6 py-6 border-t border-b border-t-gray-100">
+    <div class="mt-6 py-6 border-t border-b border-gray-100">
         <h2 class="text-xl font-semibold text-primary">
             Delete Board
         </h2>
