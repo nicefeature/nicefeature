@@ -4,6 +4,7 @@ import BoardHeader from '../Partials/BoardHeader.vue';
 import AdminSidebarLayout from '@/Layouts/Sidebar/AdminSidebarLayout.vue';
 import DeleteBoard from '../Partials/DeleteBoard.vue';
 import RemoveEmoji from '../Partials/RemoveEmoji.vue';
+import SetVisibility from '../Partials/SetVisibility.vue';
 </script>
 
 <template>
@@ -14,6 +15,10 @@ import RemoveEmoji from '../Partials/RemoveEmoji.vue';
         <BoardHeader
             :is-admin-page="true"
             :board-id="$page.props.board.id"
+        />
+        <SetVisibility
+            :board-id="$page.props.board.id"
+            :is-public="$page.props.board.is_public"
         />
         <RemoveEmoji
             v-if="$page.props.board.emoji"
