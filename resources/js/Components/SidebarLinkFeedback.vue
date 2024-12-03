@@ -40,24 +40,26 @@ const classes = computed(() =>
         </Button>
     </Link>
     <div
-        v-if="isAdminPage && $page.props.boards.length === 0"
+        v-if="isAdminPage && $page.props.allBoards.length === 0"
         class="text-xs text-primary-500 mb-4 mt-2 ml-4 mr-2"
     >
         You have no feedback boards yet, but you can <Link class="underline cursor-pointer hover:text-primary-700" :href="route('admin.board.store')" method="post" as="button">create a new one</Link>
     </div>
+
+    <!-- All Boards for Admins -->
     <div
-        v-if="$page.props.boards.length > 0"
+        v-if="isAdminPage && $page.props.allBoards.length > 0"
         class="flex flex-col"
     >
         <Link
-            v-for="board in $page.props.boards"
+            v-for="board in $page.props.allBoards"
             as="button"
             :key="board.id"
-            :href="isAdminPage ? route('admin.board.show', board.id) : route('board.show', board.id)"
+            :href="route('admin.board.show', board.id)"
         >
             <Button
                 severity="secondary"
-                :class="route().current('admin.board.show', board.id) || route().current('board.show', board.id) || route().current('admin.board.settings.show', board.id) ? activeClasses : inactiveClasses"
+                :class="route().current('admin.board.show', board.id) || route().current('admin.board.settings.show', board.id) ? activeClasses : inactiveClasses"
                 class="text-xs font-semibold py-1 pl-8 pr-2 w-full justify-between">
                 <div class="flex gap-1 items-center">
                     <div v-if="board.emoji"class="text-sm ml-[-2px]">{{ board.emoji }}</div>
@@ -66,4 +68,28 @@ const classes = computed(() =>
             </Button>
         </Link>
     </div>
+
+    <!-- Only Public Boards for Non-Admins -->
+    <div
+        v-if="!isAdminPage && $page.props.boards.length > 0"
+        class="flex flex-col"
+    >
+        <Link
+            v-for="board in $page.props.boards"
+            as="button"
+            :key="board.id"
+            :href="route('board.show', board.id)"
+        >
+            <Button
+                severity="secondary"
+                :class="route().current('board.show', board.id) ? activeClasses : inactiveClasses"
+                class="text-xs font-semibold py-1 pl-8 pr-2 w-full justify-between">
+                <div class="flex gap-1 items-center">
+                    <div v-if="board.emoji"class="text-sm ml-[-2px]">{{ board.emoji }}</div>
+                    {{ board.title || 'Untitled Board' }}
+                </div>
+            </Button>
+        </Link>
+    </div>
+
 </template>
