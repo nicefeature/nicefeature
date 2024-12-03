@@ -2,7 +2,7 @@
 import { SettingsIcon, SquareDashedIcon } from 'lucide-vue-next';
 import { Button, Popover } from 'primevue';
 import EmojiPicker, { EmojiExt } from 'vue3-emoji-picker';
-import { router, usePage } from '@inertiajs/vue3'
+import { Link, router, usePage } from '@inertiajs/vue3'
 import { ref } from 'vue';
 
 defineProps<{
@@ -41,14 +41,18 @@ function onSelectEmoji(emoji: EmojiExt) {
         <h1 class="text-2xl font-semibold flex-1">
             {{ $page.props.board.title || 'Untitled Board' }}
         </h1>
-        <Button
+        <Link
             v-if="isAdminPage"
-            severity="secondary"
-            class="p-[1px] w-fit h-fit bg-white border-white hover:bg-zinc-200 hover:border-zinc-200"
-            v-tooltip.bottom="{ value: 'Settings', class: 'text-xs' }"
+            :href="route('admin.board.settings.show', $page.props.board.id)"
         >
-            <SettingsIcon :size="30" />
-        </Button>
+            <Button
+                severity="secondary"
+                class="p-[1px] w-fit h-fit bg-white border-white hover:bg-zinc-200 hover:border-zinc-200"
+                v-tooltip.bottom="{ value: 'Settings', class: 'text-xs' }"
+            >
+                <SettingsIcon :size="30" />
+            </Button>
+        </Link>
     </div>
     <Popover
         v-if="isAdminPage"
