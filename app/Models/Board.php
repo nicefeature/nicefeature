@@ -14,6 +14,7 @@ class Board extends Model
         'title',
         'description',
         'emoji',
+        'is_public',
     ];
 
     public function user()

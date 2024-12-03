@@ -26,6 +26,7 @@ class AdminBoardController extends Controller
             'title' => null,
             'description' => null,
             'emoji' => null,
+            'is_public' => false,
         ]);
 
         return Redirect::route('admin.board.show', ['id' => $board->id]);

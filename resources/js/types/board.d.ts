@@ -3,4 +3,5 @@ export interface Board {
     title: string|null;
     description: string|null;
     emoji: string|null;
+    is_public: boolean;
 }
