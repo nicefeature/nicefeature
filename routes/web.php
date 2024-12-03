@@ -42,11 +42,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('Changelog/AdminChangelog');
     })->name('admin.changelog');
 
+    Route::post('/admin/boards', [AdminBoardController::class, 'store'])
+        ->name('admin.board.store');
+
     Route::get('/admin/boards/{id}', [AdminBoardController::class, 'show'])
         ->name('admin.board.show');
 
-    Route::post('/admin/boards', [AdminBoardController::class, 'store'])
-        ->name('admin.board.store');
+    Route::delete('/admin/boards/{id}', [AdminBoardController::class, 'delete'])
+        ->name('admin.board.delete');
 
     Route::get('/admin/boards/{id}/settings', [BoardSettingsController::class, 'show'])
         ->name('admin.board.settings.show');

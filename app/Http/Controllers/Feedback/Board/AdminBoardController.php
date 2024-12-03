@@ -30,4 +30,12 @@ class AdminBoardController extends Controller
 
         return Redirect::route('admin.board.show', ['id' => $board->id]);
     }
+
+    public function delete(string $id): RedirectResponse
+    {
+        $board = Auth::user()->boards()->where('id', $id)->firstOrFail();
+        $board->deleteOrFail();
+
+        return Redirect::route('admin.feedback');
+    }
 }
