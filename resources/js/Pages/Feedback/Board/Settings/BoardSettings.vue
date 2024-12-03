@@ -2,6 +2,7 @@
 import { Head } from '@inertiajs/vue3';
 import BoardHeader from '../Partials/BoardHeader.vue';
 import AdminSidebarLayout from '@/Layouts/Sidebar/AdminSidebarLayout.vue';
+import DeleteBoard from '../Partials/DeleteBoard.vue';
 </script>
 
 <template>
@@ -10,6 +11,6 @@ import AdminSidebarLayout from '@/Layouts/Sidebar/AdminSidebarLayout.vue';
     <AdminSidebarLayout>
         <template #header>Admin » Feedback » {{ $page.props.board.title || 'Untitled Board' }} » Settings</template>
         <BoardHeader :isAdminPage="true" />
-        <p class="text-primary-500">Settings for {{ $page.props.board.id }} comes here...</p>
+        <DeleteBoard />
     </AdminSidebarLayout>
 </template>
