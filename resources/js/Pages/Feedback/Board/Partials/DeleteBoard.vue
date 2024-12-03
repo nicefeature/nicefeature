@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { Button, Dialog } from 'primevue';
 import { ref } from 'vue';
-import { router, usePage } from '@inertiajs/vue3'
+import { router } from '@inertiajs/vue3'
+
+const props = defineProps<{
+    boardId: string;
+}>();
 
 const isConfirmModalVisible = ref(false);
-const page = usePage();
-const boardId = page.props.board.id;
 
 function onDeleteBoard() {
     isConfirmModalVisible.value = false;
-    router.delete(route('admin.board.delete', boardId));
+    router.delete(route('admin.board.delete', props.boardId));
 }
 </script>
 

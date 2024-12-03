@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { router, usePage } from '@inertiajs/vue3'
+import { router } from '@inertiajs/vue3'
 import { Button } from 'primevue';
 
-const page = usePage();
-const boardId = page.props.board.id;
+const props = defineProps<{
+    boardId: string;
+}>();
 
 function onRemoveEmoji() {
-    router.patch(route('admin.board.emoji.update', boardId), { emoji: null })
+    router.patch(route('admin.board.emoji.update', props.boardId), { emoji: null })
 }
 </script>
 

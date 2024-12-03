@@ -2,11 +2,12 @@
 import { SettingsIcon, SquareDashedIcon } from 'lucide-vue-next';
 import { Button, Popover } from 'primevue';
 import EmojiPicker, { EmojiExt } from 'vue3-emoji-picker';
-import { Link, router, usePage } from '@inertiajs/vue3'
+import { Link, router } from '@inertiajs/vue3'
 import { ref } from 'vue';
 
-defineProps<{
+const props = defineProps<{
     isAdminPage: boolean;
+    boardId: string;
 }>();
 
 const emojiPicker = ref();
@@ -14,12 +15,9 @@ const toggleEmojiPicker = (event: any) => {
     emojiPicker.value.toggle(event);
 }
 
-const page = usePage();
-const boardId = page.props.board.id;
-
 function onSelectEmoji(emoji: EmojiExt) {
     emojiPicker.value.hide();
-    router.patch(route('admin.board.emoji.update', boardId), { emoji: emoji.i })
+    router.patch(route('admin.board.emoji.update', props.boardId), { emoji: emoji.i })
 }
 </script>
 

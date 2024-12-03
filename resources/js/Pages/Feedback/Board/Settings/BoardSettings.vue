@@ -11,8 +11,16 @@ import RemoveEmoji from '../Partials/RemoveEmoji.vue';
 
     <AdminSidebarLayout>
         <template #header>Admin » Feedback » {{ $page.props.board.title || 'Untitled Board' }} » Settings</template>
-        <BoardHeader :isAdminPage="true" />
-        <RemoveEmoji v-if="$page.props.board.emoji" />
-        <DeleteBoard />
+        <BoardHeader
+            :is-admin-page="true"
+            :board-id="$page.props.board.id"
+        />
+        <RemoveEmoji
+            v-if="$page.props.board.emoji"
+            :board-id="$page.props.board.id"
+        />
+        <DeleteBoard
+            :board-id="$page.props.board.id"
+        />
     </AdminSidebarLayout>
 </template>
