@@ -4,7 +4,6 @@ import { Head } from '@inertiajs/vue3';
 import BoardHeader from './Partials/BoardHeader.vue';
 </script>
 
-<!-- Board title should come from DB, if it's null we put a placeholder -->
 <template>
     <Head :title="$page.props.board.title || 'Untitled Board'" />
 
