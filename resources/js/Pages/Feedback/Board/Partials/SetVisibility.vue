@@ -40,7 +40,11 @@ function onToggleVisibility() {
         :style="{ width: '25rem' }"
     >
         <p class="text-sm mb-8">
-            Are you sure you want to make this board <span class="font-semibold">{{ isPublic ? 'private' : 'public' }}</span>?
+            {{
+                isPublic
+                    ? 'Are you sure you want to make this board private? This will hide the board from all visitors.'
+                    : 'Are you sure you want to make this board public? This will make the board visible to all visitors.'
+            }}
         </p>
         <Button
             :severity="isPublic ? 'secondary' : 'success'"
