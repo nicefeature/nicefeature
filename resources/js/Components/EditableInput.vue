@@ -37,6 +37,14 @@ function onInputSaved() {
 
     isEditing.value = false;
 }
+
+function onKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+        onInputSaved();
+    } else if (event.key === 'Escape') {
+        isEditing.value = false;
+    }
+}
 </script>
 
 <template>
@@ -56,6 +64,7 @@ function onInputSaved() {
             ref="inputRef"
             size="small"
             :class="inputClass"
+            @keydown="onKeyDown"
         />
 
         <div v-if="isEditable && !isEditing">
