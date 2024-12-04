@@ -23,6 +23,7 @@ function updateBoardDescription(value: string|null) {
             :value="$page.props.board.description"
             placeholder="Add description (optional)"
             class="text-primary-500 mb-6"
+            input-class="w-1/2"
             :is-editable="true"
             :callback-fn="updateBoardDescription"
         />

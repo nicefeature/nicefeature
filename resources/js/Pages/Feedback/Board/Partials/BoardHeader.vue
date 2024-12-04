@@ -45,6 +45,7 @@ function updateBoardTitle(value: string|null) {
             :value="$page.props.board.title"
             placeholder="Untitled Board"
             class="text-2xl font-semibold flex-1"
+            input-class="w-1/3"
             :is-editable="isAdminPage"
             :icon-size="20"
             :callback-fn="updateBoardTitle"

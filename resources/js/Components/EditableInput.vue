@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { CheckIcon, PencilIcon, XIcon } from 'lucide-vue-next';
 import { Button, InputText } from 'primevue';
-import { ref } from 'vue';
+import { nextTick, ref } from 'vue';
 
 const props = withDefaults(
     defineProps<{
@@ -9,6 +9,7 @@ const props = withDefaults(
         callbackFn?: (value: string|null) => void;
         placeholder?: string;
         class?: string;
+        inputClass?: string;
         isEditable?: boolean;
         iconSize?: number;
     }>(),
@@ -18,6 +19,16 @@ const props = withDefaults(
     }
 );
 
+const isEditing = ref(false);
+const inputRef = ref<{ $el: HTMLElement } | null>(null);
+function onPencilClicked() {
+    isEditing.value = true;
+
+    nextTick(() => {
+        inputRef.value!.$el.focus();
+    })
+}
+
 const inputValue = ref(props.value);
 function onInputSaved() {
     if (props.callbackFn) {
@@ -26,8 +37,6 @@ function onInputSaved() {
 
     isEditing.value = false;
 }
-
-const isEditing = ref(false);
 </script>
 
 <template>
@@ -44,6 +53,9 @@ const isEditing = ref(false);
             v-else
             type="text"
             v-model="inputValue"
+            ref="inputRef"
+            size="small"
+            :class="inputClass"
         />
 
         <div v-if="isEditable && !isEditing">
@@ -51,7 +63,7 @@ const isEditing = ref(false);
                 severity="secondary"
                 class="p-[2px] w-fit h-fit"
                 v-tooltip.bottom="{ value: 'Edit', class: 'text-xs' }"
-                @click="isEditing = true"
+                @click="onPencilClicked"
             >
                 <PencilIcon :size="iconSize" class="text-primary" />
             </Button>
