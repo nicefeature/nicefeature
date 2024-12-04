@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { Button } from 'primevue';
-import { PlusIcon, SquareDashedIcon, StarIcon } from 'lucide-vue-next';
+import { PlusIcon, StarIcon } from 'lucide-vue-next';
 
 const props = defineProps<{
     href: string;
