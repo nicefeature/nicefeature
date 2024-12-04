@@ -2,7 +2,7 @@
 const props = withDefaults(
     defineProps<{
         value: string|null;
-        placeholder: string;
+        placeholder?: string;
         class?: string;
         isEditable?: boolean;
     }>(),
@@ -22,8 +22,8 @@ const props = withDefaults(
     <div
         v-else
         :class="class"
+        class="text-primary-500"
     >
         {{ placeholder }}
     </div>
-    {{ isEditable }}
 </template>
