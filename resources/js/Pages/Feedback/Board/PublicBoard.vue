@@ -2,6 +2,7 @@
 import PublicSidebarLayout from '@/Layouts/Sidebar/PublicSidebarLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import BoardHeader from './Partials/BoardHeader.vue';
+import EditableInput from '@/Components/EditableInput.vue';
 </script>
 
 <template>
@@ -12,6 +13,11 @@ import BoardHeader from './Partials/BoardHeader.vue';
             :is-admin-page="false"
             :board-id="$page.props.board.id"
         />
-        <p class="text-primary-500">Description for {{ $page.props.board.id }} comes here...</p>
+        <EditableInput
+            v-if="$page.props.board.description"
+            :value="$page.props.board.description"
+            :is-editable="false"
+            class="text-primary-500 mb-6"
+        />
     </PublicSidebarLayout>
 </template>

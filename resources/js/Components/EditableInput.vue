@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const props = withDefaults(
+import { ref } from 'vue';
+
+withDefaults(
     defineProps<{
         value: string|null;
         placeholder?: string;
@@ -10,6 +12,8 @@ const props = withDefaults(
         isEditable: true
     }
 )
+
+const isEditing = ref(false);
 </script>
 
 <template>
@@ -22,7 +26,6 @@ const props = withDefaults(
     <div
         v-else
         :class="class"
-        class="text-primary-500"
     >
         {{ placeholder }}
     </div>
