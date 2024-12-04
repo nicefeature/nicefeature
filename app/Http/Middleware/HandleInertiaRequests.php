@@ -42,14 +42,14 @@ class HandleInertiaRequests extends Middleware
             ],
             'boards' => Board::select('id', 'title', 'emoji')
                 ->where('is_public', true)
-                ->orderBy('created_at', 'asc')
+                ->orderBy('order', 'asc')
                 ->get(),
         ];
 
         // TODO: Only allow for "admin" or similar roles
         if ($request->user()) {
             $props['allBoards'] = Board::select('id', 'title', 'emoji', 'is_public')
-                ->orderBy('created_at', 'asc')
+                ->orderBy('order', 'asc')
                 ->get();
         }
 
