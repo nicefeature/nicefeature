@@ -21,7 +21,7 @@ function onSelectEmoji(emoji: EmojiExt) {
     router.patch(route('admin.board.emoji.update', props.boardId), { emoji: emoji.i })
 }
 
-function updateBoardTitle(value: string) {
+function updateBoardTitle(value: string|null) {
     console.log(value);
 }
 </script>

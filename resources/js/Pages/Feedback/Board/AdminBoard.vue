@@ -4,7 +4,7 @@ import { Head, Link } from '@inertiajs/vue3';
 import BoardHeader from './Partials/BoardHeader.vue';
 import EditableInput from '@/Components/EditableInput.vue';
 
-function updateBoardDescription(value: string) {
+function updateBoardDescription(value: string|null) {
     console.log(value);
 }
 </script>
