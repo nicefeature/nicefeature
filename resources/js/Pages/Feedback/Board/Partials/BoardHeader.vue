@@ -20,6 +20,10 @@ function onSelectEmoji(emoji: EmojiExt) {
     emojiPicker.value.hide();
     router.patch(route('admin.board.emoji.update', props.boardId), { emoji: emoji.i })
 }
+
+function updateBoardTitle(value: string) {
+    console.log(value);
+}
 </script>
 
 <template>
@@ -43,6 +47,7 @@ function onSelectEmoji(emoji: EmojiExt) {
             class="text-2xl font-semibold flex-1"
             :is-editable="isAdminPage"
             :icon-size="20"
+            :callback-fn="updateBoardTitle"
         />
         <Link
             v-if="isAdminPage"

@@ -3,6 +3,10 @@ import AdminSidebarLayout from '@/Layouts/Sidebar/AdminSidebarLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 import BoardHeader from './Partials/BoardHeader.vue';
 import EditableInput from '@/Components/EditableInput.vue';
+
+function updateBoardDescription(value: string) {
+    console.log(value);
+}
 </script>
 
 <template>
@@ -20,6 +24,7 @@ import EditableInput from '@/Components/EditableInput.vue';
             placeholder="Add description (optional)"
             class="text-primary-500 mb-6"
             :is-editable="true"
+            :callback-fn="updateBoardDescription"
         />
         <div
             v-if="!$page.props.board.is_public"

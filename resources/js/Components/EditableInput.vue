@@ -3,9 +3,10 @@ import { CheckIcon, PencilIcon, XIcon } from 'lucide-vue-next';
 import { Button } from 'primevue';
 import { ref } from 'vue';
 
-withDefaults(
+const props = withDefaults(
     defineProps<{
         value: string|null;
+        callbackFn?: (value: string) => void;
         placeholder?: string;
         class?: string;
         isEditable?: boolean;
@@ -15,7 +16,15 @@ withDefaults(
         isEditable: true,
         iconSize: 16,
     }
-)
+);
+
+function onInputSaved() {
+    if (props.callbackFn) {
+        props.callbackFn('it works');
+    }
+
+    isEditing.value = false;
+}
 
 const isEditing = ref(false);
 </script>
@@ -43,7 +52,7 @@ const isEditing = ref(false);
             <Button
                 severity="secondary"
                 class="p-[2px] w-fit h-fit"
-                @click="isEditing = false"
+                @click="onInputSaved"
             >
                 <CheckIcon :size="iconSize" class="text-green-600" />
             </Button>
