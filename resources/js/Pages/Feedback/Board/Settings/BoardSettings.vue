@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
-import BoardHeader from '../Partials/BoardHeader.vue';
 import AdminSidebarLayout from '@/Layouts/Sidebar/AdminSidebarLayout.vue';
 import DeleteBoard from '../Partials/DeleteBoard.vue';
 import RemoveEmoji from '../Partials/RemoveEmoji.vue';

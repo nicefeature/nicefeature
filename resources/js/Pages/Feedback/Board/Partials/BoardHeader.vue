@@ -4,6 +4,7 @@ import { Button, Popover } from 'primevue';
 import EmojiPicker, { EmojiExt } from 'vue3-emoji-picker';
 import { Link, router } from '@inertiajs/vue3'
 import { ref } from 'vue';
+import EditableInput from '@/Components/EditableInput.vue';
 
 const props = defineProps<{
     isAdminPage: boolean;
@@ -36,9 +37,12 @@ function onSelectEmoji(emoji: EmojiExt) {
         <div v-if="!isAdminPage && $page.props.board.emoji" class="text-2xl ml-[-4px]">
             {{ $page.props.board.emoji }}
         </div>
-        <h1 class="text-2xl font-semibold flex-1">
-            {{ $page.props.board.title || 'Untitled Board' }}
-        </h1>
+        <EditableInput
+            :value="$page.props.board.title"
+            placeholder="Untitled Board"
+            class="text-2xl font-semibold flex-1"
+            :is-editable="isAdminPage"
+        />
         <Link
             v-if="isAdminPage"
             :href="route('admin.board.settings.show', $page.props.board.id)"

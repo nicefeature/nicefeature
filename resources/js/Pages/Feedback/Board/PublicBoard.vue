@@ -9,7 +9,7 @@ import BoardHeader from './Partials/BoardHeader.vue';
 
     <PublicSidebarLayout>
         <BoardHeader
-            :is-admin-page="true"
+            :is-admin-page="false"
             :board-id="$page.props.board.id"
         />
         <p class="text-primary-500">Description for {{ $page.props.board.id }} comes here...</p>
