@@ -22,11 +22,15 @@ class AdminBoardController extends Controller
 
     public function store(): RedirectResponse
     {
+        $lastBoard = Auth::user()->boards()->orderByDesc('order')->first();
+        $newOrder = $lastBoard ? $lastBoard->order + 10.0 : 10.0;
+
         $board = Auth::user()->boards()->create([
             'title' => null,
             'description' => null,
             'emoji' => null,
             'is_public' => false,
+            'order' => $newOrder,
         ]);
 
         return Redirect::route('admin.board.show', ['id' => $board->id]);
