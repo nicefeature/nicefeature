@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Feedback\Board\AdminBoardController;
+use App\Http\Controllers\Feedback\Board\BoardDescriptionController;
 use App\Http\Controllers\Feedback\Board\BoardSettingsController;
+use App\Http\Controllers\Feedback\Board\BoardTitleController;
 use App\Http\Controllers\Feedback\Board\BoardVisibilityController;
 use App\Http\Controllers\Feedback\Board\EmojiController;
 use App\Http\Controllers\Feedback\Board\PublicBoardController;
@@ -60,6 +62,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::patch('/boards/{id}/visibility', [BoardVisibilityController::class, 'update'])
         ->name('admin.board.visibility.update');
+
+    Route::patch('/boards/{id}/title', [BoardTitleController::class, 'update'])
+        ->name('admin.board.title.update');
+
+    Route::patch('/boards/{id}/description', [BoardDescriptionController::class, 'update'])
+        ->name('admin.board.description.update');
 });
 
 /**

@@ -22,7 +22,7 @@ function onSelectEmoji(emoji: EmojiExt) {
 }
 
 function updateBoardTitle(value: string|null) {
-    console.log(value);
+    router.patch(route('admin.board.title.update', props.boardId), { title: value })
 }
 </script>
 

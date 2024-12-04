@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import AdminSidebarLayout from '@/Layouts/Sidebar/AdminSidebarLayout.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, router, usePage } from '@inertiajs/vue3';
 import BoardHeader from './Partials/BoardHeader.vue';
 import EditableInput from '@/Components/EditableInput.vue';
 
+const boardId = usePage().props.board.id;
+
 function updateBoardDescription(value: string|null) {
-    console.log(value);
+    router.patch(route('admin.board.description.update', boardId), { description: value })
 }
 </script>
 
