@@ -29,13 +29,15 @@ function onPencilClicked() {
     })
 }
 
-const inputValue = ref(props.value);
+let textValue = props.value;
+const inputValue = ref(textValue);
 function onInputSaved() {
+    textValue = inputValue.value;
+    isEditing.value = false;
+
     if (props.callbackFn) {
         props.callbackFn(inputValue.value);
     }
-
-    isEditing.value = false;
 }
 
 function onKeyDown(event: KeyboardEvent) {
@@ -50,8 +52,8 @@ function onKeyDown(event: KeyboardEvent) {
 <template>
     <div :class="class" class="flex items-center gap-2">
         <div v-if="!isEditing">
-            <div v-if="value">
-                {{ value }}
+            <div v-if="textValue">
+                {{ textValue }}
             </div>
             <div v-else>
                 {{ placeholder }}
