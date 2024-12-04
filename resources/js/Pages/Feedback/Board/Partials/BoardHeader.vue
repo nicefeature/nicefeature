@@ -42,6 +42,7 @@ function onSelectEmoji(emoji: EmojiExt) {
             placeholder="Untitled Board"
             class="text-2xl font-semibold flex-1"
             :is-editable="isAdminPage"
+            :icon-size="20"
         />
         <Link
             v-if="isAdminPage"
