@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Feedback\Board\AdminBoardController;
 use App\Http\Controllers\Feedback\Board\BoardDescriptionController;
+use App\Http\Controllers\Feedback\Board\BoardOrderController;
 use App\Http\Controllers\Feedback\Board\BoardSettingsController;
 use App\Http\Controllers\Feedback\Board\BoardTitleController;
 use App\Http\Controllers\Feedback\Board\BoardVisibilityController;
@@ -68,6 +69,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::patch('/boards/{id}/description', [BoardDescriptionController::class, 'update'])
         ->name('admin.board.description.update');
+
+    Route::patch('/boards/order', [BoardOrderController::class, 'update'])
+        ->name('admin.board.order.update');
 });
 
 /**

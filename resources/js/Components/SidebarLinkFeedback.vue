@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import { Link, usePage } from '@inertiajs/vue3';
+import { Link, router, usePage } from '@inertiajs/vue3';
 import { Button } from 'primevue';
 import { PlusIcon, StarIcon } from 'lucide-vue-next';
 import draggable from 'vuedraggable';
@@ -27,9 +27,8 @@ watch(() => page.props.allBoards, (newBoards) => {
 });
 
 function onSortEnd() {
-    allBoards.value.forEach(board => {
-        console.log(board.id)
-    })
+    const reorderedBoardIds = allBoards.value.map(board => board.id);
+    router.patch(route('admin.board.order.update'), { boardIds: reorderedBoardIds });
 }
 </script>
 
