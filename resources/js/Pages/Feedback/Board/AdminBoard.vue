@@ -3,11 +3,16 @@ import AdminSidebarLayout from '@/Layouts/Sidebar/AdminSidebarLayout.vue';
 import { Head, Link, router, usePage } from '@inertiajs/vue3';
 import BoardHeader from './Partials/BoardHeader.vue';
 import EditableInput from '@/Components/EditableInput.vue';
+import { ref, watch } from 'vue';
 
-const boardId = usePage().props.board.id;
+const page = usePage();
+const boardId = ref(page.props.board.id);
+watch(() => page.props.board, (newBoard) => {
+    boardId.value = newBoard.id;
+});
 
 function updateBoardDescription(value: string|null) {
-    router.patch(route('admin.board.description.update', boardId), { description: value })
+    router.patch(route('admin.board.description.update', boardId.value), { description: value })
 }
 </script>
 
