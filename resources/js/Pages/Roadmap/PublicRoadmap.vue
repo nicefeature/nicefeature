@@ -7,7 +7,7 @@ import { Head } from '@inertiajs/vue3';
     <Head title="Roadmap" />
 
     <PublicSidebarLayout>
-        <template #header>Roadmap</template>
-        <div>Public Roadmap View</div>
+        <h1 class="text-2xl font-semibold mb-2">Roadmap</h1>
+        <p class="text-primary-500">No roadmap created yet</p>
     </PublicSidebarLayout>
 </template>

@@ -7,7 +7,7 @@ import { Head } from '@inertiajs/vue3';
     <Head title="Feedback" />
 
     <PublicSidebarLayout>
-        <template #header>Feedback</template>
-        <div>Public Feedback View</div>
+        <h1 class="text-2xl font-semibold mb-2">Feedback</h1>
+        <p class="text-primary-500">No feedback received yet</p>
     </PublicSidebarLayout>
 </template>

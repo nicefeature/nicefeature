@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('admin', absolute: false));
+        return redirect()->intended(route('admin.feedback', absolute: false));
     }
 
     /**

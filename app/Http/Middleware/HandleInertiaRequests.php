@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Board;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
@@ -30,7 +31,7 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        return [
+        $props = [
             ...parent::share($request),
             'auth' => [
                 'user' => $request->user(),
@@ -39,6 +40,19 @@ class HandleInertiaRequests extends Middleware
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
+            'boards' => Board::select('id', 'title', 'emoji')
+                ->where('is_public', true)
+                ->orderBy('order', 'asc')
+                ->get(),
         ];
+
+        // TODO: Only allow for "admin" or similar roles
+        if ($request->user()) {
+            $props['allBoards'] = Board::select('id', 'title', 'emoji', 'is_public')
+                ->orderBy('order', 'asc')
+                ->get();
+        }
+
+        return $props;
     }
 }

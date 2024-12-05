@@ -7,7 +7,7 @@ import { Head } from '@inertiajs/vue3';
     <Head title="Roadmap" />
 
     <AdminSidebarLayout>
-        <template #header>Admin Panel » Roadmap</template>
+        <template #header>Admin » Roadmap</template>
         <div>Admin Roadmap View</div>
     </AdminSidebarLayout>
 </template>

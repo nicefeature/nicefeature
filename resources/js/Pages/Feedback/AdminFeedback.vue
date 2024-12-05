@@ -7,7 +7,8 @@ import { Head } from '@inertiajs/vue3';
     <Head title="Feedback" />
 
     <AdminSidebarLayout>
-        <template #header>Admin Panel » Feedback</template>
-        <div>Admin Feedback View</div>
+        <template #header>Admin » Feedback</template>
+        <h1 class="text-2xl font-semibold mb-2">Feedback</h1>
+        <p class="text-primary-500">Feedback across all boards will appear here.</p>
     </AdminSidebarLayout>
 </template>

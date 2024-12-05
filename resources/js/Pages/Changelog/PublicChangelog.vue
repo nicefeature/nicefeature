@@ -7,7 +7,7 @@ import { Head } from '@inertiajs/vue3';
     <Head title="Changelog" />
 
     <PublicSidebarLayout>
-        <template #header>Changelog</template>
-        <div>Public Changelog View</div>
+        <h1 class="text-2xl font-semibold mb-2">Changelog</h1>
+        <p class="text-primary-500">No changelogs published yet</p>
     </PublicSidebarLayout>
 </template>

@@ -7,7 +7,7 @@ import { Head } from '@inertiajs/vue3';
     <Head title="Changelog" />
 
     <AdminSidebarLayout>
-        <template #header>Admin Panel » Changelog</template>
+        <template #header>Admin » Changelog</template>
         <div>Admin Changelog View</div>
     </AdminSidebarLayout>
 </template>

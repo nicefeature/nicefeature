@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\Feedback\Board\AdminBoardController;
+use App\Http\Controllers\Feedback\Board\BoardDescriptionController;
+use App\Http\Controllers\Feedback\Board\BoardOrderController;
+use App\Http\Controllers\Feedback\Board\BoardSettingsController;
+use App\Http\Controllers\Feedback\Board\BoardTitleController;
+use App\Http\Controllers\Feedback\Board\BoardVisibilityController;
+use App\Http\Controllers\Feedback\Board\EmojiController;
+use App\Http\Controllers\Feedback\Board\PublicBoardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -8,10 +16,6 @@ use Inertia\Inertia;
  * PUBLIC ROUTES
  */
 Route::get('/', function () {
-    return Inertia::render('Home');
-});
-
-Route::get('/feedback', function () {
     return Inertia::render('Feedback/PublicFeedback');
 })->name('feedback');
 
@@ -23,25 +27,51 @@ Route::get('/changelog', function () {
     return Inertia::render('Changelog/PublicChangelog');
 })->name('changelog');
 
+Route::get('/b/{id}', [PublicBoardController::class, 'show'])
+    ->name('board.show');
+
 /**
  * AUTH & VERIFIED
  */
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin', function () {
-        return Inertia::render('AdminPanel');
-    })->name('admin');
-
-    Route::get('/admin/feedback', function () {
         return Inertia::render('Feedback/AdminFeedback');
-    })->name('admin/feedback');
+    })->name('admin.feedback');
 
     Route::get('/admin/roadmap', function () {
         return Inertia::render('Roadmap/AdminRoadmap');
-    })->name(name: 'admin/roadmap');
+    })->name(name: 'admin.roadmap');
 
     Route::get('/admin/changelog', function () {
         return Inertia::render('Changelog/AdminChangelog');
-    })->name('admin/changelog');
+    })->name('admin.changelog');
+
+    Route::post('/admin/boards', [AdminBoardController::class, 'store'])
+        ->name('admin.board.store');
+
+    Route::get('/admin/boards/{id}', [AdminBoardController::class, 'show'])
+        ->name('admin.board.show');
+
+    Route::delete('/admin/boards/{id}', [AdminBoardController::class, 'delete'])
+        ->name('admin.board.delete');
+
+    Route::get('/admin/boards/{id}/settings', [BoardSettingsController::class, 'show'])
+        ->name('admin.board.settings.show');
+
+    Route::patch('/boards/{id}/emoji', [EmojiController::class, 'update'])
+        ->name('admin.board.emoji.update');
+
+    Route::patch('/boards/{id}/visibility', [BoardVisibilityController::class, 'update'])
+        ->name('admin.board.visibility.update');
+
+    Route::patch('/boards/{id}/title', [BoardTitleController::class, 'update'])
+        ->name('admin.board.title.update');
+
+    Route::patch('/boards/{id}/description', [BoardDescriptionController::class, 'update'])
+        ->name('admin.board.description.update');
+
+    Route::patch('/boards/order', [BoardOrderController::class, 'update'])
+        ->name('admin.board.order.update');
 });
 
 /**
