@@ -11,8 +11,8 @@ const props = defineProps<{
     isAdminPage: boolean;
 }>();
 
-const activeClasses = 'bg-zinc-200 border-zinc-200 hover:bg-zinc-200 hover:border-zinc-200'
-const inactiveClasses = 'bg-zinc-50 border-zinc-50 hover:bg-zinc-200 hover:border-zinc-200'
+const activeClasses = 'bg-zinc-200 border-zinc-200'
+const inactiveClasses = 'bg-zinc-50 border-zinc-50'
 
 const classes = computed(() =>
     props.active
