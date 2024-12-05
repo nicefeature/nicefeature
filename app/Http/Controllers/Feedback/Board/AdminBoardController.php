@@ -23,7 +23,7 @@ class AdminBoardController extends Controller
     public function store(): RedirectResponse
     {
         $lastBoard = Auth::user()->boards()->orderByDesc('order')->first();
-        $newOrder = $lastBoard ? $lastBoard->order + 10.0 : 10.0;
+        $newOrder = $lastBoard ? $lastBoard->order + 1 : 1;
 
         $board = Auth::user()->boards()->create([
             'title' => null,

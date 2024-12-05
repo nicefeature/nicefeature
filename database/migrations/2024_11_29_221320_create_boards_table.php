@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('emoji')->nullable();
             $table->boolean('is_public')->default(false);
-            $table->float('order')->default(0.0)->index();
+            $table->integer('order')->default(0)->index();
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
