@@ -52,8 +52,8 @@ function onKeyDown(event: KeyboardEvent) {
 <template>
     <div :class="class" class="flex items-center gap-2">
         <div v-if="!isEditing">
-            <div v-if="value">
-                {{ value }}
+            <div v-if="inputValue">
+                {{ inputValue }}
             </div>
             <div v-else>
                 {{ placeholder }}
