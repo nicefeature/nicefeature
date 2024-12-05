@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { Link } from '@inertiajs/vue3';
+import { computed, ref, watch } from 'vue';
+import { Link, usePage } from '@inertiajs/vue3';
 import { Button } from 'primevue';
 import { PlusIcon, StarIcon } from 'lucide-vue-next';
+import draggable from 'vuedraggable';
 
 const props = defineProps<{
     href: string;
@@ -18,6 +19,12 @@ const classes = computed(() =>
         ? activeClasses
         : inactiveClasses,
 );
+
+const page = usePage();
+const allBoards = ref(page.props.allBoards ?? []);
+watch(() => page.props.allBoards, (newBoards) => {
+    allBoards.value = newBoards;
+});
 </script>
 
 <template>
@@ -51,22 +58,29 @@ const classes = computed(() =>
         v-if="isAdminPage && $page.props.allBoards.length > 0"
         class="flex flex-col"
     >
-        <Link
-            v-for="board in $page.props.allBoards"
-            as="button"
-            :key="board.id"
-            :href="route('admin.board.show', board.id)"
+        <draggable
+            v-model="allBoards"
+            item-key="id"
+            class="flex flex-col"
         >
-            <Button
-                severity="secondary"
-                :class="route().current('admin.board.show', board.id) || route().current('admin.board.settings.show', board.id) ? activeClasses : inactiveClasses"
-                class="text-xs font-semibold py-1 pl-8 pr-2 w-full justify-between">
-                <div class="flex gap-1 items-center">
-                    <div v-if="board.emoji"class="text-sm ml-[-2px]">{{ board.emoji }}</div>
-                    {{ board.title || 'Untitled Board' }}
-                </div>
-            </Button>
-        </Link>
+            <template #item="{element}">
+                <Link
+                    as="button"
+                    :key="element.id"
+                    :href="route('admin.board.show', element.id)"
+                >
+                    <Button
+                        severity="secondary"
+                        :class="route().current('admin.board.show', element.id) || route().current('admin.board.settings.show', element.id) ? activeClasses : inactiveClasses"
+                        class="text-xs font-semibold py-1 pl-8 pr-2 w-full justify-between">
+                        <div class="flex gap-1 items-center">
+                            <div v-if="element.emoji"class="text-sm ml-[-2px]">{{ element.emoji }}</div>
+                            {{ element.title || 'Untitled Board' }}
+                        </div>
+                    </Button>
+                </Link>
+            </template>
+        </draggable>
     </div>
 
     <!-- Only Public Boards for Non-Admins -->
