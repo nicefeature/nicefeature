@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { CheckIcon, PencilIcon, XIcon } from 'lucide-vue-next';
 import { Button, InputText } from 'primevue';
-import { nextTick, ref } from 'vue';
+import { nextTick, ref, watch } from 'vue';
 
 const props = withDefaults(
     defineProps<{
@@ -30,6 +30,9 @@ function onPencilClicked() {
 }
 
 const inputValue = ref(props.value);
+watch(() => props.value, (newValue) => {
+    inputValue.value = newValue;
+})
 function onInputSaved() {
     if (props.callbackFn) {
         props.callbackFn(inputValue.value);
