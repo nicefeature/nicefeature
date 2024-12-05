@@ -25,6 +25,12 @@ const allBoards = ref(page.props.allBoards ?? []);
 watch(() => page.props.allBoards, (newBoards) => {
     allBoards.value = newBoards;
 });
+
+function onSortEnd() {
+    allBoards.value.forEach(board => {
+        console.log(board.id)
+    })
+}
 </script>
 
 <template>
@@ -62,6 +68,7 @@ watch(() => page.props.allBoards, (newBoards) => {
             v-model="allBoards"
             item-key="id"
             class="flex flex-col"
+            @end="onSortEnd"
         >
             <template #item="{element}">
                 <Link
