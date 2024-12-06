@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import PublicSidebarLayout from '@/Layouts/Sidebar/PublicSidebarLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import BoardHeader from './Partials/BoardHeader.vue';
 import EditableInput from '@/Components/EditableInput.vue';
+import PublicBoardHeader from './Partials/PublicBoardHeader.vue';
 </script>
 
 <template>
     <Head :title="$page.props.board.title || 'Untitled Board'" />
 
     <PublicSidebarLayout>
-        <BoardHeader
-            :is-admin-page="false"
+        <PublicBoardHeader
             :board-id="$page.props.board.id"
         />
         <EditableInput

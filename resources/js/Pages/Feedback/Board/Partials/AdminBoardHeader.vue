@@ -7,7 +7,6 @@ import { ref } from 'vue';
 import EditableInput from '@/Components/EditableInput.vue';
 
 const props = defineProps<{
-    isAdminPage: boolean;
     boardId: string;
 }>();
 
@@ -27,9 +26,8 @@ function updateBoardTitle(value: string|null) {
 </script>
 
 <template>
-    <div class="flex items-center justify-between gap-2" :class="isAdminPage ? 'mb-6 ml-[-4px]' : 'mb-2'">
+    <div class="flex items-center justify-between gap-2 mb-6 ml-[-4px]">
         <Button
-            v-if="isAdminPage"
             severity="secondary"
             class="p-[1px] w-fit h-fit bg-white border-white hover:bg-zinc-200 hover:border-zinc-200"
             v-tooltip.bottom="{ value: 'Change Emoji', class: 'text-xs' }"
@@ -38,20 +36,15 @@ function updateBoardTitle(value: string|null) {
             <SquareDashedIcon v-if="!$page.props.board.emoji" :size="30" />
             <div class="text-2xl" v-else>{{ $page.props.board.emoji }}</div>
         </Button>
-        <div v-if="!isAdminPage && $page.props.board.emoji" class="text-2xl ml-[-4px]">
-            {{ $page.props.board.emoji }}
-        </div>
         <EditableInput
             :value="$page.props.board.title"
             placeholder="Untitled Board"
             class="text-2xl font-semibold flex-1"
             input-class="w-1/3"
-            :is-editable="isAdminPage"
             :icon-size="20"
             :callback-fn="updateBoardTitle"
         />
         <Link
-            v-if="isAdminPage"
             :href="route('admin.board.settings.show', $page.props.board.id)"
         >
             <Button
@@ -64,7 +57,6 @@ function updateBoardTitle(value: string|null) {
         </Link>
     </div>
     <Popover
-        v-if="isAdminPage"
         ref="emojiPicker"
         :unstyled="true"
     >
