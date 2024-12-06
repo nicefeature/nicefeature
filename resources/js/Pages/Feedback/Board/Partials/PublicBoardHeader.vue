@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NewFeedbackButton from '../../Partials/NewFeedbackButton.vue';
+import NewFeedback from '../../Partials/NewFeedback.vue';
 
 
 const props = defineProps<{
@@ -24,6 +24,6 @@ const props = defineProps<{
         >
             Untitled Board
         </div>
-        <NewFeedbackButton />
+        <NewFeedback />
     </div>
 </template>
