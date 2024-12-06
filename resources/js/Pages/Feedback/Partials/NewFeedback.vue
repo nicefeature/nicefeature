@@ -17,11 +17,13 @@ function openDrawer() {
 const form = useForm({
     title: '',
     description: '',
-    boardId: null,
+    board: null,
 });
 
 const submit = () => {
-    console.log(form);
+    console.log('TITLE: ' + form.title);
+    console.log('DESC: ' + form.description);
+    console.log(form.board);
 };
 </script>
 
@@ -80,13 +82,29 @@ const submit = () => {
                     Category
                 </label>
                 <Select
-                    v-model="form.boardId"
+                    v-model="form.board"
                     :options="$page.props.boards"
-                    optionLabel="name"
+                    optionLabel="title"
                     placeholder="Select a board"
                     checkmark :highlightOnSelect="false"
                     class="w-full"
-                />
+                >
+                    <template #value="slotProps">
+                        <div v-if="slotProps.value" class="flex items-center">
+                            <div v-if="slotProps.value.emoji"class="mr-2">{{ slotProps.value.emoji }}</div>
+                            <div>{{ slotProps.value.title || "Untitled Board" }}</div>
+                        </div>
+                        <span v-else>
+                            {{ slotProps.placeholder }}
+                        </span>
+                    </template>
+                    <template #option="slotProps">
+                        <div class="flex items-center">
+                            <div v-if="slotProps.option.emoji"class="mr-2">{{ slotProps.option.emoji }}</div>
+                            <div>{{ slotProps.option.title || "Untitled Board" }}</div>
+                        </div>
+                    </template>
+                </Select>
             </div>
             <Button
                 type="submit"
