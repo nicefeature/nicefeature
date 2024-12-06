@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3';
 import { PlusIcon } from 'lucide-vue-next';
-import { Button, Drawer, InputText } from 'primevue';
+import { Button, Drawer, InputText, Textarea } from 'primevue';
 import { nextTick, ref } from 'vue';
 
 const titleInputRef = ref<{ $el: HTMLElement } | null>(null);
@@ -53,8 +53,23 @@ const submit = () => {
                     type="text"
                     v-model="form.title"
                     class="w-full"
-                    placeholder="Enter a title that summarizes your feedback"
+                    placeholder="Summarize your feedback"
                     ref="titleInputRef"
+                />
+            </div>
+            <div class="mb-8">
+                <label
+                    for="description"
+                    class="text-md font-semibold block mb-2"
+                >
+                    Description
+                </label>
+                <Textarea
+                    id="description"
+                    v-model="form.description"
+                    class="w-full resize-none"
+                    placeholder="Please give us more details here"
+                    rows="5"
                 />
             </div>
         </form>
