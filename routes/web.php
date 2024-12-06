@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Feedback\AdminFeedbackController;
 use App\Http\Controllers\Feedback\Board\AdminBoardController;
 use App\Http\Controllers\Feedback\Board\BoardDescriptionController;
 use App\Http\Controllers\Feedback\Board\BoardOrderController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\Feedback\Board\BoardTitleController;
 use App\Http\Controllers\Feedback\Board\BoardVisibilityController;
 use App\Http\Controllers\Feedback\Board\EmojiController;
 use App\Http\Controllers\Feedback\Board\PublicBoardController;
+use App\Http\Controllers\Feedback\PublicFeedbackController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,9 +17,8 @@ use Inertia\Inertia;
 /**
  * PUBLIC ROUTES
  */
-Route::get('/', function () {
-    return Inertia::render('Feedback/PublicFeedback');
-})->name('feedback');
+Route::get('/', [PublicFeedbackController::class, 'show'])
+    ->name('feedback');
 
 Route::get('/roadmap', function () {
     return Inertia::render('Roadmap/PublicRoadmap');
@@ -34,9 +35,9 @@ Route::get('/b/{id}', [PublicBoardController::class, 'show'])
  * AUTH & VERIFIED
  */
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/admin', function () {
-        return Inertia::render('Feedback/AdminFeedback');
-    })->name('admin.feedback');
+
+    Route::get('/admin', [AdminFeedbackController::class, 'show'])
+        ->name('admin.feedback');
 
     Route::get('/admin/roadmap', function () {
         return Inertia::render('Roadmap/AdminRoadmap');
