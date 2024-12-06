@@ -1,8 +1,19 @@
 <script setup lang="ts">
+import { Board } from '@/types/board';
 import { useForm } from '@inertiajs/vue3';
 import { PlusIcon } from 'lucide-vue-next';
 import { Button, Drawer, InputText, Select, Textarea } from 'primevue';
-import { nextTick, ref } from 'vue';
+import { nextTick, onMounted, ref } from 'vue';
+
+const props = defineProps<{
+    board?: Board;
+}>();
+
+onMounted(() => {
+    if (props.board) {
+        form.board = props.board;
+    }
+})
 
 const titleInputRef = ref<{ $el: HTMLElement } | null>(null);
 
@@ -14,7 +25,11 @@ function openDrawer() {
     })
 }
 
-const form = useForm({
+const form = useForm<{
+    title: string;
+    description: string;
+    board: Board | null;
+}>({
     title: '',
     description: '',
     board: null,

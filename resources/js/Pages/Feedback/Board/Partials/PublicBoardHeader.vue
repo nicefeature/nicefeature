@@ -24,6 +24,8 @@ const props = defineProps<{
         >
             Untitled Board
         </div>
-        <NewFeedback />
+        <NewFeedback
+            :board="$page.props.board"
+        />
     </div>
 </template>
