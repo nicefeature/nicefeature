@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import NewFeedbackButton from '../../Partials/NewFeedbackButton.vue';
+
+
 const props = defineProps<{
     boardId: string;
 }>();
@@ -21,5 +24,6 @@ const props = defineProps<{
         >
             Untitled Board
         </div>
+        <NewFeedbackButton />
     </div>
 </template>
