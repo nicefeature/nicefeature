@@ -12,11 +12,11 @@ import PublicBoardHeader from './Partials/PublicBoardHeader.vue';
         <PublicBoardHeader
             :board-id="$page.props.board.id"
         />
-        <EditableInput
+        <div
             v-if="$page.props.board.description"
-            :value="$page.props.board.description"
-            :is-editable="false"
             class="text-primary-500 mb-6"
-        />
+        >
+            {{ $page.props.board.description }}
+        </div>
     </PublicSidebarLayout>
 </template>
