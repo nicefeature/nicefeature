@@ -46,7 +46,7 @@ class HandleInertiaRequests extends Middleware
                 ->get(),
         ];
 
-        // TODO: Only allow for "admin" or similar roles
+        // TODO: Only fetch on /admin routes, not needed on public routes
         if ($request->user()) {
             $props['allBoards'] = Board::select('id', 'title', 'emoji', 'is_public')
                 ->orderBy('order', 'asc')
