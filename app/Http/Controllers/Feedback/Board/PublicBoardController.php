@@ -13,9 +13,9 @@ class PublicBoardController extends Controller
     {
         $board = Board::findOrFail($id);
 
-        // TODO: Inject feedback per board
         return Inertia::render('Feedback/Board/PublicBoard', [
             'board' => $board,
+            'feedback' => $board->feedback,
         ]);
     }
 }

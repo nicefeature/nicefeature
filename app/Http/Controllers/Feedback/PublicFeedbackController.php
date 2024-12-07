@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Feedback;
 
 use App\Http\Controllers\Controller;
+use App\Models\Feedback;
 use Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -34,7 +35,10 @@ class PublicFeedbackController extends Controller
 
     public function show(): Response
     {
-        // TODO: Inject all feedback
-        return Inertia::render('Feedback/PublicFeedback');
+        $feedback = Feedback::all();
+
+        return Inertia::render('Feedback/PublicFeedback', [
+            'feedback' => $feedback
+        ]);
     }
 }
