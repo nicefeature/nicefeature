@@ -36,25 +36,18 @@ const form = useForm<{
 });
 
 function submitFeedback() {
-    if (
-        form.board === null
-        || form.title === ''
-        || form.description === ''
-    ) {
-        return;
-    }
-
-    form.post(route('feedback.store'), {
-        data: {
-            title: form.title,
-            description: form.description,
-            board_id: form.board.id,
-        },
-        onFinish: () => {
-            isDrawerVisible.value = false;
-            form.reset('title', 'description');
-        }
-    })
+    form
+        .transform((data) => ({
+            title: data.title,
+            description: data.description,
+            board_id: data.board?.id,
+        }))
+        .post(route('feedback.store'), {
+            onFinish: () => {
+                isDrawerVisible.value = false;
+                form.reset('title', 'description');
+            }
+        })
 };
 </script>
 

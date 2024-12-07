@@ -19,10 +19,14 @@ class PublicFeedbackController extends Controller
             'board_id' => 'required|uuid',
         ]);
 
+        $board = Auth::user()->boards()
+            ->where('id', $request->board_id)
+            ->firstOrFail();
+
         Auth::user()->feedback()->create([
             'title' => $request->title,
             'description' => $request->description,
-            'board_id' => $request->board_id
+            'board_id' => $board->id,
         ]);
 
         return redirect()->back()->with('success', 'Feedback added');
