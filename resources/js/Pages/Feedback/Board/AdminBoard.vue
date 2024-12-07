@@ -33,10 +33,7 @@ function updateBoardDescription(value: string|null) {
             input-class="w-1/2"
             :callback-fn="updateBoardDescription"
         />
-        <FeedbackList
-            class="mb-6"
-            :feedback="$page.props.feedback"
-        />
+        <FeedbackList class="mb-6" />
         <div
             v-if="!$page.props.board.is_public"
             class="text-xs mb-6 bg-yellow-50 border border-yellow-200 text-yellow-600 px-3 p-2 rounded-md w-fit"

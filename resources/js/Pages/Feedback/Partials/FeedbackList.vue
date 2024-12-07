@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { Feedback } from '@/types/feedback';
-
-const props = defineProps<{
-    feedback: Feedback[];
-}>();
 </script>
 
 <template>
     <div
-        v-if="feedback.length > 0"
+        class="flex flex-col gap-8"
+        v-if="$page.props.feedback.length > 0"
     >
-        Feedback comes here...
+        <div
+            v-for="feedback in $page.props.feedback"
+        >
+            <div class="font-semibold text-lg">{{ feedback.title }}</div>
+            <div class="text-md">{{ feedback.description }}</div>
+        </div>
     </div>
     <div v-else>
         No feedback received yet

@@ -9,9 +9,7 @@ import FeedbackList from './Partials/FeedbackList.vue';
 
     <AdminSidebarLayout>
         <template #header>Admin » Feedback</template>
-        <h1 class="text-2xl font-semibold mb-2">Feedback</h1>
-        <FeedbackList
-            :feedback="$page.props.feedback"
-        />
+        <h1 class="text-2xl font-semibold mb-8">Feedback</h1>
+        <FeedbackList />
     </AdminSidebarLayout>
 </template>

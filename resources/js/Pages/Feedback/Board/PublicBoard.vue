@@ -18,8 +18,6 @@ import FeedbackList from '../Partials/FeedbackList.vue';
         >
             {{ $page.props.board.description }}
         </div>
-        <FeedbackList
-            :feedback="$page.props.feedback"
-        />
+        <FeedbackList />
     </PublicSidebarLayout>
 </template>

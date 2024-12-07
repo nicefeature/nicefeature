@@ -9,12 +9,10 @@ import FeedbackList from './Partials/FeedbackList.vue';
     <Head title="Feedback" />
 
     <PublicSidebarLayout>
-        <div class="flex items-center justify-between gap-2 mb-2">
-            <h1 class="text-2xl font-semibold mb-2">All Feedback</h1>
+        <div class="flex items-center justify-between gap-2 mb-10">
+            <h1 class="text-2xl font-semibold">All Feedback</h1>
             <NewFeedback />
         </div>
-        <FeedbackList
-            :feedback="$page.props.feedback"
-        />
+        <FeedbackList />
     </PublicSidebarLayout>
 </template>
