@@ -1,5 +1,6 @@
 import { Config } from 'ziggy-js';
 import { Board } from './board';
+import { Feedback } from './feedback';
 
 export interface User {
     id: number;
@@ -17,5 +18,6 @@ export type PageProps<
     ziggy: Config & { location: string };
     board: Board;
     boards: Board[]; // only public boards
-    allBoards: Board[];
+    allBoards: Board[]; // all boards, public & private
+    feedback: Feedback[];
 };

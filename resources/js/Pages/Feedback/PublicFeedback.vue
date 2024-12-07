@@ -2,6 +2,7 @@
 import PublicSidebarLayout from '@/Layouts/Sidebar/PublicSidebarLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import NewFeedback from './Partials/NewFeedback.vue';
+import FeedbackList from './Partials/FeedbackList.vue';
 </script>
 
 <template>
@@ -12,6 +13,8 @@ import NewFeedback from './Partials/NewFeedback.vue';
             <h1 class="text-2xl font-semibold mb-2">All Feedback</h1>
             <NewFeedback />
         </div>
-        <p class="text-primary-500 mb-6">No feedback received yet</p>
+        <FeedbackList
+            :feedback="$page.props.feedback"
+        />
     </PublicSidebarLayout>
 </template>

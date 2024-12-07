@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import PublicSidebarLayout from '@/Layouts/Sidebar/PublicSidebarLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import EditableInput from '@/Components/EditableInput.vue';
 import PublicBoardHeader from './Partials/PublicBoardHeader.vue';
+import FeedbackList from '../Partials/FeedbackList.vue';
 </script>
 
 <template>
@@ -18,5 +18,8 @@ import PublicBoardHeader from './Partials/PublicBoardHeader.vue';
         >
             {{ $page.props.board.description }}
         </div>
+        <FeedbackList
+            :feedback="$page.props.feedback"
+        />
     </PublicSidebarLayout>
 </template>

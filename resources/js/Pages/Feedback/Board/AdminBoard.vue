@@ -4,6 +4,7 @@ import { Head, Link, router, usePage } from '@inertiajs/vue3';
 import EditableInput from '@/Components/EditableInput.vue';
 import { ref, watch } from 'vue';
 import AdminBoardHeader from './Partials/AdminBoardHeader.vue';
+import FeedbackList from '../Partials/FeedbackList.vue';
 
 const page = usePage();
 const boardId = ref(page.props.board.id);
@@ -31,6 +32,10 @@ function updateBoardDescription(value: string|null) {
             class="text-primary-500 mb-6"
             input-class="w-1/2"
             :callback-fn="updateBoardDescription"
+        />
+        <FeedbackList
+            class="mb-6"
+            :feedback="$page.props.feedback"
         />
         <div
             v-if="!$page.props.board.is_public"
