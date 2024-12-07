@@ -2,7 +2,7 @@
 import { Board } from '@/types/board';
 import { useForm } from '@inertiajs/vue3';
 import { PlusIcon } from 'lucide-vue-next';
-import { Button, Drawer, InputText, Select, Textarea } from 'primevue';
+import { Button, Drawer, InputText, Message, Select, Textarea } from 'primevue';
 import { nextTick, onMounted, ref } from 'vue';
 
 const props = defineProps<{
@@ -29,21 +29,27 @@ const form = useForm<{
     title: string;
     description: string;
     board: Board | null;
+    board_id: string
 }>({
     title: '',
     description: '',
     board: null,
+    board_id: ''
 });
 
 function submitFeedback() {
+    if (form.board) {
+        form.board_id = form.board.id;
+    }
+
     form
         .transform((data) => ({
             title: data.title,
             description: data.description,
-            board_id: data.board?.id,
+            board_id: data.board_id,
         }))
         .post(route('feedback.store'), {
-            onFinish: () => {
+            onSuccess: () => {
                 isDrawerVisible.value = false;
                 form.title = '';
                 form.description = '';
@@ -84,6 +90,15 @@ function submitFeedback() {
                     placeholder="Summarize your feedback"
                     ref="titleInputRef"
                 />
+                <Message
+                    v-if="form.errors.title"
+                    severity="error"
+                    variant="simple"
+                    size="small"
+                    class="mt-2"
+                >
+                    {{ form.errors.title }}
+                </Message>
             </div>
             <div class="mb-8">
                 <label
@@ -99,6 +114,14 @@ function submitFeedback() {
                     placeholder="Please give us more details here"
                     rows="5"
                 />
+                <Message
+                    v-if="form.errors.description"
+                    severity="error"
+                    variant="simple"
+                    size="small"
+                >
+                    {{ form.errors.description }}
+                </Message>
             </div>
             <div class="mb-8">
                 <label
@@ -131,6 +154,15 @@ function submitFeedback() {
                         </div>
                     </template>
                 </Select>
+                <Message
+                    v-if="form.errors.board_id"
+                    severity="error"
+                    variant="simple"
+                    size="small"
+                    class="mt-2"
+                >
+                    {{ form.errors.board_id }}
+                </Message>
             </div>
             <Button
                 type="submit"
