@@ -35,10 +35,26 @@ const form = useForm<{
     board: null,
 });
 
-const submit = () => {
-    console.log('TITLE: ' + form.title);
-    console.log('DESC: ' + form.description);
-    console.log(form.board);
+function submitFeedback() {
+    if (
+        form.board === null
+        || form.title === ''
+        || form.description === ''
+    ) {
+        return;
+    }
+
+    form.post(route('feedback.store'), {
+        data: {
+            title: form.title,
+            description: form.description,
+            board_id: form.board.id,
+        },
+        onFinish: () => {
+            isDrawerVisible.value = false;
+            form.reset('title', 'description');
+        }
+    })
 };
 </script>
 
@@ -57,7 +73,7 @@ const submit = () => {
         class="w-full md:w-1/2 p-8"
     >
         <p class="text-primary-500 mb-12">Thank you for taking the time to give us feedback. Please fill out the form below.</p>
-        <form @submit.prevent="submit">
+        <form @submit.prevent="submitFeedback">
             <div class="mb-8">
                 <label
                     for="title"
