@@ -6,16 +6,14 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Board extends Model
+class Feedback extends Model
 {
     use HasFactory, HasUuids;
 
     protected $fillable = [
         'title',
         'description',
-        'emoji',
-        'is_public',
-        'order',
+        'board_id',
     ];
 
     public function user()
@@ -23,8 +21,8 @@ class Board extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function feedback()
+    public function board()
     {
-        return $this->hasMany(Feedback::class);
+        return $this->belongsTo(Board::class);
     }
 }

@@ -10,11 +10,9 @@ const props = withDefaults(
         placeholder?: string;
         class?: string;
         inputClass?: string;
-        isEditable?: boolean;
         iconSize?: number;
     }>(),
     {
-        isEditable: true,
         iconSize: 16,
     }
 );
@@ -72,7 +70,7 @@ function onKeyDown(event: KeyboardEvent) {
             @keydown="onKeyDown"
         />
 
-        <div v-if="isEditable && !isEditing">
+        <div v-if="!isEditing">
             <Button
                 severity="secondary"
                 class="p-[2px] w-fit h-fit"
@@ -82,7 +80,7 @@ function onKeyDown(event: KeyboardEvent) {
                 <PencilIcon :size="iconSize" class="text-primary" />
             </Button>
         </div>
-        <div v-if="isEditable && isEditing" class="flex gap-1 items-center">
+        <div v-if="isEditing" class="flex gap-1 items-center">
             <Button
                 severity="secondary"
                 class="p-[2px] w-fit h-fit"

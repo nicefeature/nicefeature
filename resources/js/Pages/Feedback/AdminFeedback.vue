@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AdminSidebarLayout from '@/Layouts/Sidebar/AdminSidebarLayout.vue';
 import { Head } from '@inertiajs/vue3';
+import FeedbackList from './Partials/FeedbackList.vue';
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import { Head } from '@inertiajs/vue3';
 
     <AdminSidebarLayout>
         <template #header>Admin » Feedback</template>
-        <h1 class="text-2xl font-semibold mb-2">Feedback</h1>
-        <p class="text-primary-500">Feedback across all boards will appear here.</p>
+        <h1 class="text-2xl font-semibold mb-8">Feedback</h1>
+        <FeedbackList />
     </AdminSidebarLayout>
 </template>

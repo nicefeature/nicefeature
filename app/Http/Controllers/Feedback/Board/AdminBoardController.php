@@ -17,6 +17,7 @@ class AdminBoardController extends Controller
 
         return Inertia::render('Feedback/Board/AdminBoard', [
             'board' => $board,
+            'feedback' => $board->feedback,
         ]);
     }
 

@@ -15,6 +15,7 @@ class PublicBoardController extends Controller
 
         return Inertia::render('Feedback/Board/PublicBoard', [
             'board' => $board,
+            'feedback' => $board->feedback,
         ]);
     }
 }

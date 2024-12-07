@@ -11,7 +11,7 @@ class BoardTitleController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'title' => 'nullable|string|max:255',
+            'title' => 'nullable|string',
         ]);
 
         $board = Board::findOrFail($id);
