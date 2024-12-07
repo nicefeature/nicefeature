@@ -45,7 +45,9 @@ function submitFeedback() {
         .post(route('feedback.store'), {
             onFinish: () => {
                 isDrawerVisible.value = false;
-                form.reset('title', 'description');
+                form.title = '';
+                form.description = '';
+                form.board = props.board ? props.board : null;
             }
         })
 };
@@ -132,7 +134,7 @@ function submitFeedback() {
             </div>
             <Button
                 type="submit"
-                class="text-sm font-semibold"
+                class="font-semibold"
                 :disabled="form.processing"
             >
                 Submit
