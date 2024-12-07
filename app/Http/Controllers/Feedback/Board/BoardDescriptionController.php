@@ -11,7 +11,7 @@ class BoardDescriptionController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'description' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
         ]);
 
         $board = Board::findOrFail($id);
